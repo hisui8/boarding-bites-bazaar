@@ -1,145 +1,252 @@
-import { ChefHat, Coffee, Cookie, Soup, Apple, Zap, Heart, BookOpen } from "lucide-react";
-import { RecipeCard } from "@/components/RecipeCard";
+import { useState } from "react";
+import { ChefHat, Coffee, Cookie, Soup, Apple, Zap, Heart, BookOpen, ExternalLink } from "lucide-react";
+import { RecipeCardCompact } from "@/components/RecipeCardCompact";
+import { RecipeModal } from "@/components/RecipeModal";
 import { RecipeSection } from "@/components/RecipeSection";
-import { SubmitRecipeForm } from "@/components/SubmitRecipeForm";
 import { Button } from "@/components/ui/button";
 
 const Index = () => {
-  // Sample recipes for each section
-  const sampleRecipes = {
+  const [selectedRecipe, setSelectedRecipe] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleRecipeClick = (recipe) => {
+    setSelectedRecipe(recipe);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedRecipe(null);
+  };
+
+  // All recipes organized by category
+  const recipes = {
     mains: [
       {
-        title: "Microwave Mac & Cheese Deluxe",
-        author: "Sarah Chen",
-        location: "Boston, MA",
-        difficulty: "Easy" as const,
-        ingredients: [
-          "1 cup elbow pasta",
-          "1/2 cup shredded cheddar cheese",
-          "2 tbsp milk",
-          "1 tbsp butter",
-          "Salt and pepper to taste"
-        ],
-        instructions: [
-          "Cook pasta in microwave-safe bowl with water for 2-3 minutes",
-          "Drain and add cheese, milk, and butter",
-          "Microwave for 30 seconds and stir",
-          "Season with salt and pepper"
-        ],
-        chefsComments: "This saved me during finals week when the dining hall was closed. Add some hot sauce for extra comfort!"
+        title: "phibrodchefs",
+        author: "Phoenix",
+        location: "New Zealand",
+        difficulty: 1,
+        ingredients: ["Bread", "cheese", "lettuce", "mayonnaise", "chicken"],
+        instructions: ["It's fr just a sandwich with extra mayo"],
+        chefsComments: "Bros will for real taste heaven when they have it. Don't over do anything else apart from the mayonnaise. Just tastes like a nice summer meal tbh. Must be paired with a raspberry squash (juice) and a bag of salt and vinegar crisps"
+      },
+      {
+        title: "Chicken rice",
+        author: "woh",
+        location: "Korea",
+        difficulty: 1,
+        ingredients: ["Rotisserie chicken", "instant rice", "chili oil"],
+        instructions: ["buy chicken", "shred it", "microwave rice", "put chicken on", "Chili oil", "put rest of chicken in freezer then repeat if necessary"],
+        chefsComments: "Good protein and filling 👍 lel"
+      },
+      {
+        title: "Aglio Oglio Pasta",
+        author: "Mimi Smith",
+        location: "HK/ Switzerland",
+        difficulty: 2,
+        ingredients: ["LOTS of garlic cloves", "1 shallot", "1 small chilli", "igloo seasoning", "salt", "pepper", "garlic/onion seasoning", "olive oil", "pasta of choice", "optional: mushrooms"],
+        instructions: ["chop garlic into round slightly thick slices", "dice shallots", "chop chillies however you like", "(optional: chop mushrooms)", "boil water", "put pasta in water when starts to bubble/boil", "in a frying pan/saucepan, pour a good amount of olive oil and on low med heat pour in the garlic", "once it starts cooking add the onions and if needed for more oil you can add some", "add salt and pepper", "(opt: if u add mushrooms add in now)", "fry until golden and soft and then add chilli", "Once everything is soft and cooked add all of your seasoning", "drain your pasta fully cooked and mix with your garlic onion mixture", "feel free to top with Parmesan or cheese of choice but it is yummy as is as well! :) enjoy!"],
+        chefsComments: "no not really my grandpa made it and I find it super comforting - it's just super yum and good for you because of the amount of garlic - comfort and happiness as it is a simple but very nice almost a little fancy looking dish. Hopefully you like this dish and good luck with boarding school cookbook <3"
+      },
+      {
+        title: "Truffle Gnocchi",
+        author: "Eric Sim",
+        location: "Seoul",
+        difficulty: 4,
+        ingredients: ["Potato's", "truffles", "Parmesan", "White Wine", "black truffle butter", "mushrooms", "heavy cream", "garlic", "flour", "salt"],
+        instructions: ["make mashed potatoes", "mix with flour", "make into gnocchi shape", "heat pan", "cook mushrooms with garlic", "add white wine to pan", "add heavy cream to pan", "add gnocchi", "plate with shredded truffles and truffle butter"],
+        chefsComments: "Recommended to my by my father, liked it - I always liked the taste of truffle - aroma and something unique to Italian cuisine. Best of luck on the project I assume you're doing! The Sim family says hi!"
+      },
+      {
+        title: "Japanese curry",
+        author: "Lucia",
+        location: "Irvine CA",
+        difficulty: 3,
+        ingredients: ["Japanese curry packet (golden curry)", "potatoes", "Carrots", "Onion", "Beef/chicken", "Rice"],
+        instructions: ["Choose whatever protein you want or none at all. If your protein is beef, pork, chicken, or lamb, cut it into large bite (or two bite) sized pieces. Cut a medium to large onion into a medium dice.", "Saute your onions in some butter or vegetable oil. When the onions are translucent, add the terrestrial protein (but not fish or tofu yet - save those for later).", "When the protein is starting to brown, add about two cups of water. Cover and bring to a boil, then reduce to a simmer. Let simmer for about 10 minutes.", "Add the curry bricks and stir to dissolve. If you're making a fish or tofu curry, add that after the bricks are completely incorporated. Bring back to a simmer. Serve with/over rice or udon."],
+        chefsComments: "No I just make it with my friends often; very comforting dish and can take away your worries from terrible schoolwork. Yayyy this is great project Hisu 😁"
+      },
+      {
+        title: "soondobu",
+        author: "WILLIAM LAWS 🗣️🗣️⁉️⁉️🔥🔥",
+        location: "SAUDI ARABIA",
+        difficulty: 1,
+        ingredients: ["soondobu packet (around $15)", "Kalbi (around $45, but will last for several meals)", "water 🗣️"],
+        instructions: ["boil water", "soup base in and kalbi", "dobu in", "wait for three minutes 🔥🔥", "EAT 🗣️🗣️🔥🔥⁉️⁉️"],
+        chefsComments: "my mom makes it for me a lot and i make it for myself when i dont have time - its easy asf and its the only korean dish ik how to make - yummy COMMENTS"
+      },
+      {
+        title: "Quesadillas",
+        author: "vL",
+        location: "México",
+        difficulty: 5,
+        ingredients: ["oaxaca cheese", "corn tortilla"],
+        instructions: ["Put tortilla in the stove and when it is hot from Both sides add the cheese in half the circle of the tortilla. When the cheese starts to melt fold the tortilla. Before doing that u can also add spinach"],
+        chefsComments: "A real quesadilla"
+      },
+      {
+        title: "西红柿炒鸡蛋",
+        author: "",
+        location: "Earth",
+        difficulty: 1,
+        ingredients: ["Eggs and tomato"],
+        instructions: ["Scramble the eggs with some oil; put more oil in a pan before putting the sliced tomatoes in. Cook the tomatos for a while until they become soft and add the scrambled eggs in. Add some salt"],
+        chefsComments: "It's just good"
+      },
+      {
+        title: "Hamburg",
+        author: "Shunsuki Honjonov",
+        location: "Tokyo/Vancouver",
+        difficulty: 3,
+        ingredients: ["Onions", "eggs", "milk", "grounded beef", "can of demi-glace source", "breadcrumbs (or panko)"],
+        instructions: ["Dice up onions", "Stir fry onions", "Take onions off the heat and mix them thoroughly with grounded beef along with some spice", "Make \"burger shape\" out of it", "Cook them", "Open the can and pour them in to the pan", "Done 👍"],
+        chefsComments: "Back in 2014, my mother was busy with work so my grandma came over to our house to cook dinner. Eventually she taught me how to cook and the first thing she taught was this."
+      },
+      {
+        title: "gigi hadid pasta",
+        author: "gwen",
+        location: "my boyfriend",
+        difficulty: 2,
+        ingredients: ["basic pasta ingredients but with vodka!"],
+        instructions: ["you can search them up on the internet!"],
+        chefsComments: "it just takes nice 🧑‍🍳 nopee"
       }
     ],
     snacks: [
       {
-        title: "Study Buddy Trail Mix",
-        author: "Marcus Johnson",
-        location: "Denver, CO",
-        difficulty: "Easy" as const,
-        ingredients: [
-          "1 cup mixed nuts",
-          "1/2 cup dried fruit",
-          "1/4 cup dark chocolate chips",
-          "1 tbsp coconut flakes"
-        ],
-        instructions: [
-          "Mix all ingredients in a large bowl",
-          "Store in airtight container",
-          "Grab handfuls during study sessions"
-        ],
-        chefsComments: "Perfect brain food for those long library nights. The chocolate keeps me motivated!"
+        title: "예찬원 바삭군 시즈닝 먹태",
+        author: "julie ahn hehehe",
+        location: "seoul/nj/suff",
+        difficulty: 1,
+        ingredients: ["예찬원 바삭군 시즈닝 먹태 청양마요맛, 30g, 2개 (or other flavors from 쿠팡)", "sorry i don't have good 추천 recipes 🥲🥲 this is the best i got hahah"],
+        instructions: ["open the packet and eat it hehe"],
+        chefsComments: "i didn't know that 황태 was packed with protein. apparently it's like 80 percent protein but yeah after i discovered this fact, it became my go to snack hi hisusususupernova 💛💛"
+      },
+      {
+        title: "tunacado spring rolls",
+        author: "kie",
+        location: "new york",
+        difficulty: 2,
+        ingredients: ["canned tuna", "lemon", "spicy mayo", "avocado", "rice paper", "water", "soy sauce", "any other veggies"],
+        instructions: ["open your can of tuna and drain it properly", "in a bowl, combine your tuna, juice of 1/2 of a lemon, any seasonings of your choice, 1/2 tbsp of soy sauce and 1 tbsp of spicy mayo", "chop up your avocado and any other veggies you want to add", "in a large enough bowl, add water", "submerge your rice paper in water for 20 or so secs (until its soft) - add in your fillings and wrap", "repeat step five until you have your desired amount (usually makes 4 rolls)", "enjoy with a side of soy sauce"],
+        chefsComments: "i make it at home for lunch bc #proteingains"
+      },
+      {
+        title: "Rice seaweed",
+        author: "Lucieeee",
+        location: "Fiji and Netherlands",
+        difficulty: 1,
+        ingredients: ["Microwaveable sticky rice", "soy sauce", "seaweed"],
+        instructions: ["Microwave rice", "put soy sauce on rice", "grab rice with seaweed and enjoyyy"],
+        chefsComments: "I lived in Korea and would always eat this as a snack I hope readers experience joy and happiness cuz this dish is fire Love you Hisu miss you very much"
+      },
+      {
+        title: "Buffalo chicken dip",
+        author: "Vanessa🩷🩷🩷",
+        location: "Hamden ct",
+        difficulty: 1,
+        ingredients: ["Chicken (shredded)", "cream cheese", "Mexican cheese", "buffalo sauce", "maybe some salt and pepper"],
+        instructions: ["Chicken", "shred the chicken", "add sour cream and buffalo sauce", "cheese on top and inside", "bake it or microwave it", "get a chip"],
+        chefsComments: "I like buffalo chicken dip a lot and it's so easy to make at school Nope hope you make a fire cook book send me a copy"
+      },
+      {
+        title: "Spam fried rice",
+        author: "Coiney",
+        location: "Homeless",
+        difficulty: 2,
+        ingredients: ["Spam", "day old rice", "scallions", "sesame oil", "eggs", "vegetable (wutever u want)", "soy sauce", "chile crisp", "sesame seeds"],
+        instructions: ["Whisk eggs in a separate bowl, heat pan on high heat, once heated pour oil and wait until the oil starts smoking", "pour eggs into the heated oil and scramble until fluffy", "in a separate pan also on high fry off spam for 5ish min on medium heat", "rice and spam goes into pan with eggs, add WASHED vegetables and continue cooking", "add a dash of soy sauce and small amount of sesame oil, serve and top with chili crisp and sesame seeds"],
+        chefsComments: "I threw ts tgth for my dad"
+      },
+      {
+        title: "Beans on toast",
+        author: "James Wareham",
+        location: "Shanghai",
+        difficulty: 1,
+        ingredients: ["Bread", "beans", "cheese"],
+        instructions: ["Microwave the beans for 2 minutes in a microwaveable container", "toast the bread", "put cheese on the bread and pour the beans over the top"],
+        chefsComments: "It's British and it tastes good"
       }
     ],
     sweets: [
       {
-        title: "Homesick Chocolate Mug Cake",
-        author: "Emma Rodriguez",
-        location: "Austin, TX",
-        difficulty: "Easy" as const,
-        ingredients: [
-          "4 tbsp flour",
-          "4 tbsp sugar",
-          "2 tbsp cocoa powder",
-          "3 tbsp milk",
-          "3 tbsp vegetable oil",
-          "Pinch of salt"
-        ],
-        instructions: [
-          "Mix dry ingredients in a microwave-safe mug",
-          "Add wet ingredients and stir until smooth",
-          "Microwave for 90 seconds",
-          "Let cool for 1 minute before eating"
-        ],
-        chefsComments: "When I'm missing my mom's baking, this little cake reminds me that I'm loved, even from afar."
+        title: "MANGO MOCHI??? Matcha tiramisu, red velvet brownies/cookies omg, LAVA CAKE, fruit /lemon tartsssss, ive been tjinking abt banana bread lately 🤩🤩",
+        author: "Josephine",
+        location: "Hk",
+        difficulty: 3,
+        ingredients: ["Oh dear"],
+        instructions: ["Uh oh"],
+        chefsComments: "I just love food man"
+      },
+      {
+        title: "Oreo Mug Cake",
+        author: "Chloe Kim",
+        location: "Wherever that makes me feel comfortable and welcomed",
+        difficulty: 1,
+        ingredients: ["Oreo", "Milk", "(Mug)"],
+        instructions: ["Add the oreos into a mug", "Pour in the milk where about 1/4 of the mug is filled", "Crush the Oreos and stir until it is formed as a thick batter with the milk", "Pop the mug into the microwave for 1 1/2 minutes (adjust the time based on your preferences)"],
+        chefsComments: "I accidentally discovered this dish while trying to melt the Oreos (idk what I was thinking…)"
+      },
+      {
+        title: "Best Chocolate Chip Cookies",
+        author: "Talia Baron",
+        location: "New York",
+        difficulty: 2,
+        ingredients: ["3 cups All purpose flour", "2 cups sugar (can use 1 cup of brown and 1 cup of white or just 2 cups white)", "1 teaspoon baking soda", "1/2 teaspoon baking powder", "1 teaspoon salt", "2 eggs", "1 cup softened butter", "2 teaspoons vanilla extract", "2 cups chocolate chips", "*makes 36 standard sized cookies"],
+        instructions: ["preheat oven 375 F", "medium bowl mix flour, baking soda, baking powder, and salt", "In separate bowl, cream together butter and sugar", "mix in eggs and vanilla into wet ingredients", "mix dry ingredients into wet ingredients until combined", "Add in chocolate chips", "roll into 2-3 tablespoon sized balls (or however big you want them)", "*I like to put more salt on top before putting them in the oven (optional)", "place on lined baking sheet and bake 8-10 minutes or until just barely golden", "let them sit on baking sheet for 5 mins and then let them cool on cooling rack"],
+        chefsComments: "I first starting making these cookies during Covid and my family really loves them. They always ask me to make them for them when I'm home. I just really love chocolate chip cookies and they remind me of the cherished time that I spend with my family. I hope readers will experience the warmth and comfort of a good cookie :) I got this recipe from https://joyfoodsunshine.com/the-most-amazing-chocolate-chip-cookies/#wprm-recipe-container-8678"
       }
     ],
     comfort: [
       {
-        title: "Instant Ramen Upgrade Bowl",
-        author: "David Kim",
-        location: "Seattle, WA",
-        difficulty: "Medium" as const,
-        ingredients: [
-          "1 pack instant ramen",
-          "1 egg",
-          "Green onions",
-          "Sriracha",
-          "Sesame oil",
-          "Frozen vegetables"
-        ],
-        instructions: [
-          "Cook ramen according to package directions",
-          "Add frozen vegetables in last 2 minutes",
-          "Crack egg into hot broth and stir",
-          "Top with green onions, sriracha, and sesame oil"
-        ],
-        chefsComments: "Turns college staple food into something that actually makes you feel human again."
+        title: "my favorite pasta ever",
+        author: "",
+        location: "mexico",
+        difficulty: 2,
+        ingredients: ["short pasta", "olive oil", "garlic paste", "tomato paste", "pepper", "chili flakes", "heavy cream", "Parmesan cheese"],
+        instructions: ["boil pasta and drain water", "in a pan sautée the garlic paste, tomato paste, chili flakes and pepper in olive oil", "add cream until the sauce is orange", "add cheese", "add pasta"],
+        chefsComments: "It's originally pasta alla vodka, but this one is without so it can be in a dorm. It's from Italy and it's my favorite dish to make my friends."
+      },
+      {
+        title: "superb smoothie for two 😍",
+        author: "serafina",
+        location: "Hong Kong",
+        difficulty: 1,
+        ingredients: ["BLENDER ESSENTIAL (borrow one from faculty, no illegal blenders allowed)", "1 Banana", "a cup of milk", "two handfuls of berries or other fruit (frozen or fresh)", "a decent amount of ice based on preference", "sweet yogurt (plain greek yogurt isn't tasty let's be real)", "honey or other sweetener if the fruit you use isn't ripe enough (usually not needed)"],
+        instructions: ["Put it all in the blender and blend until smooth! Pour into two or more glasses. Hardest part is acquiring materials."],
+        chefsComments: "Although this is a very basic recipe, I find that simple dishes are often the most comforting. This is the first thing my mom taught me to make, so I've had a million of these smoothies since I was little. If the smoothie doesn't turn out well, it's really fun to troubleshoot by adding in random things! The sky is the limit. i like your thinking, hisu"
+      },
+      {
+        title: "Teriyaki Sauce",
+        author: "Metta",
+        location: "My homeland is the Philippines, my heart is in Hong Kong, and my life is in Gill.",
+        difficulty: 1,
+        ingredients: ["1.5 TSP Brown Sugar", "1 TSP honey", "1/2 TSP Sesame Oil", "1/2 TSP garlic"],
+        instructions: ["When I can't find something that I want to eat, there's always grilled chicken on the salad bar, broccoli, snow peas, and rice. So I make a quick teriyaki sauce.", "Mix all the sauce ingredients together in a bowl and microwave for about 30 seconds.", "Get some grilled chicken from the salad bar and other veggies that you want toss in the sauce and put back in the microwave for another 30 seconds.", "Spoon over a bowl of white rice and enjoy!"],
+        chefsComments: "When I was a student, it wasn't common to have the diversity of dishes that we currently have today. When I missed home, I wanted a comfort food that was quick and always accessible. All the ingredients for the teriyaki sauce can be found during our meals - so I always had a go to meal when I needed something different from what was being served."
       }
     ],
     healthy: [
       {
-        title: "Dorm Room Power Bowl",
-        author: "Zoe Williams",
-        location: "Portland, OR",
-        difficulty: "Easy" as const,
-        ingredients: [
-          "Pre-cooked quinoa",
-          "Canned black beans",
-          "Avocado",
-          "Cherry tomatoes",
-          "Lime juice",
-          "Olive oil",
-          "Salt and pepper"
-        ],
-        instructions: [
-          "Drain and rinse black beans",
-          "Combine quinoa and beans in bowl",
-          "Top with diced avocado and tomatoes",
-          "Dress with lime juice and olive oil"
-        ],
-        chefsComments: "When the dining hall pizza is calling but your body needs real nutrition. This bowl has saved my energy levels!"
+        title: "Over night oats",
+        author: "Kathryn",
+        location: "California",
+        difficulty: 2,
+        ingredients: ["Water", "Oats", "Chia Seeds", "Milk or Yogurt", "Coco powder", "honey", "fruit"],
+        instructions: ["grab a container the can seal", "add and equal amout of milk or yogurt with chia seeds and oats", "Mix", "add the toppings like coco powder and honey", "refrigerate overnight", "in the morning top with the fruit"],
+        chefsComments: "I really value my time in the mornings so this is a super easy meal I can eat on the go while also getting a lot of nutrition."
       }
     ],
     quick: [
       {
-        title: "PB&J French Toast Hack",
-        author: "Tyler Brooks",
-        location: "Nashville, TN",
-        difficulty: "Easy" as const,
-        ingredients: [
-          "2 slices bread",
-          "Peanut butter",
-          "Jelly",
-          "1 egg",
-          "Splash of milk",
-          "Butter"
-        ],
-        instructions: [
-          "Make a PB&J sandwich",
-          "Beat egg with milk in shallow dish",
-          "Dip sandwich in egg mixture",
-          "Cook in buttered pan for 2-3 minutes each side"
-        ],
-        chefsComments: "Breakfast and lunch had a baby, and it's delicious. Perfect for those weird meal times between classes."
+        title: "Ham and cheese griddle",
+        author: "Jaxon Payne",
+        location: "Portland oregon",
+        difficulty: 2,
+        ingredients: ["Sandwich bread specifically the subway type", "oil and vinegar", "cheese", "onion", "lettuce", "mayo", "Panini press"],
+        instructions: ["Get bread", "Put ham on one side very small bit of mayo with the cheese on the other side. Fold together with small squirt of oil and vinegar.", "Panini press until cheese is melting out the sides.", "Eat like that or add lettuce and onions into sandwich, retomar quickly, cover with oil and vinegar."],
+        chefsComments: "Every Sunday I eat this because dhall is closed and I get hungry and they only have this stuff out. It's awesome because it basically becomes a ham and cheese cracker if you press it right so you can throw like 4 of them down before you feel like you ate one actual sandwich No!"
       }
     ]
   };
@@ -209,9 +316,17 @@ const Index = () => {
             description="Hearty meals you can make with minimal equipment that will actually fill you up and keep you going."
             icon={<ChefHat className="w-16 h-16" />}
           >
-            {sampleRecipes.mains.map((recipe, index) => (
-              <RecipeCard key={index} {...recipe} />
-            ))}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {recipes.mains.map((recipe, index) => (
+                <RecipeCardCompact 
+                  key={index} 
+                  title={recipe.title}
+                  author={recipe.author}
+                  difficulty={recipe.difficulty}
+                  onClick={() => handleRecipeClick(recipe)}
+                />
+              ))}
+            </div>
           </RecipeSection>
 
           {/* Savory Snacks & Sides */}
@@ -220,9 +335,17 @@ const Index = () => {
             description="Perfect for study sessions, movie nights, or when you need something satisfying between meals."
             icon={<Coffee className="w-16 h-16" />}
           >
-            {sampleRecipes.snacks.map((recipe, index) => (
-              <RecipeCard key={index} {...recipe} />
-            ))}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {recipes.snacks.map((recipe, index) => (
+                <RecipeCardCompact 
+                  key={index} 
+                  title={recipe.title}
+                  author={recipe.author}
+                  difficulty={recipe.difficulty}
+                  onClick={() => handleRecipeClick(recipe)}
+                />
+              ))}
+            </div>
           </RecipeSection>
 
           {/* Sweet Treats */}
@@ -231,9 +354,17 @@ const Index = () => {
             description="Because sometimes you need a little sugar to get through the day (or night)."
             icon={<Cookie className="w-16 h-16" />}
           >
-            {sampleRecipes.sweets.map((recipe, index) => (
-              <RecipeCard key={index} {...recipe} />
-            ))}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {recipes.sweets.map((recipe, index) => (
+                <RecipeCardCompact 
+                  key={index} 
+                  title={recipe.title}
+                  author={recipe.author}
+                  difficulty={recipe.difficulty}
+                  onClick={() => handleRecipeClick(recipe)}
+                />
+              ))}
+            </div>
           </RecipeSection>
 
           {/* Comfort Bowls & Soups */}
@@ -242,9 +373,17 @@ const Index = () => {
             description="Warm, cozy meals for when you need a hug in food form."
             icon={<Soup className="w-16 h-16" />}
           >
-            {sampleRecipes.comfort.map((recipe, index) => (
-              <RecipeCard key={index} {...recipe} />
-            ))}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {recipes.comfort.map((recipe, index) => (
+                <RecipeCardCompact 
+                  key={index} 
+                  title={recipe.title}
+                  author={recipe.author}
+                  difficulty={recipe.difficulty}
+                  onClick={() => handleRecipeClick(recipe)}
+                />
+              ))}
+            </div>
           </RecipeSection>
 
           {/* Light & Healthy */}
@@ -253,9 +392,17 @@ const Index = () => {
             description="Nourishing options for when you want to feel good inside and out."
             icon={<Apple className="w-16 h-16" />}
           >
-            {sampleRecipes.healthy.map((recipe, index) => (
-              <RecipeCard key={index} {...recipe} />
-            ))}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {recipes.healthy.map((recipe, index) => (
+                <RecipeCardCompact 
+                  key={index} 
+                  title={recipe.title}
+                  author={recipe.author}
+                  difficulty={recipe.difficulty}
+                  onClick={() => handleRecipeClick(recipe)}
+                />
+              ))}
+            </div>
           </RecipeSection>
 
           {/* Quick Bites & Hacks */}
@@ -264,16 +411,51 @@ const Index = () => {
             description="Fast solutions for busy schedules and creative ways to upgrade basic ingredients."
             icon={<Zap className="w-16 h-16" />}
           >
-            {sampleRecipes.quick.map((recipe, index) => (
-              <RecipeCard key={index} {...recipe} />
-            ))}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {recipes.quick.map((recipe, index) => (
+                <RecipeCardCompact 
+                  key={index} 
+                  title={recipe.title}
+                  author={recipe.author}
+                  difficulty={recipe.difficulty}
+                  onClick={() => handleRecipeClick(recipe)}
+                />
+              ))}
+            </div>
           </RecipeSection>
         </div>
 
         {/* Submit Recipe Section */}
         <div id="submit-recipe" className="py-16">
-          <SubmitRecipeForm />
+          <div className="bg-card rounded-lg p-8 shadow-[var(--shadow-card)] text-center">
+            <h3 className="font-heading text-2xl font-bold text-foreground mb-3">Share Your Recipe</h3>
+            <p className="text-muted-foreground mb-6">
+              Have a go-to recipe that's gotten you through late-night study sessions or homesick moments? 
+              Share it with fellow students and help build our community cookbook!
+            </p>
+            <Button 
+              asChild
+              className="bg-primary text-primary-foreground hover:bg-primary/90"
+            >
+              <a 
+                href="https://forms.gle/zBjMQ477TwoaZuL78" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center"
+              >
+                <ExternalLink className="w-4 h-4 mr-2" />
+                Submit Your Recipe
+              </a>
+            </Button>
+          </div>
         </div>
+
+        {/* Recipe Modal */}
+        <RecipeModal 
+          recipe={selectedRecipe}
+          isOpen={isModalOpen}
+          onClose={closeModal}
+        />
       </div>
 
       {/* Footer */}
