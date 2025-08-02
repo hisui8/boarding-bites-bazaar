@@ -18,6 +18,10 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				'heading': ['Comfortaa', 'ui-rounded', 'system-ui', 'sans-serif'],
+				'body': ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -51,6 +55,11 @@ export default {
 				card: {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
+				},
+				recipe: {
+					easy: 'hsl(var(--recipe-easy))',
+					medium: 'hsl(var(--recipe-medium))',
+					hard: 'hsl(var(--recipe-hard))',
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
