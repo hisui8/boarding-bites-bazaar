@@ -28,15 +28,6 @@ const Index = () => {
   const recipes = {
     mains: [
       {
-        title: "phibrodchefs",
-        author: "Phoenix",
-        location: "New Zealand",
-        difficulty: 1,
-        ingredients: ["Bread", "cheese", "lettuce", "mayonnaise", "chicken"],
-        instructions: ["It's fr just a sandwich with extra mayo"],
-        chefsComments: "Bros will for real taste heaven when they have it. Don't over do anything else apart from the mayonnaise. Just tastes like a nice summer meal tbh. Must be paired with a raspberry squash (juice) and a bag of salt and vinegar crisps"
-      },
-      {
         title: "Chicken rice",
         author: "woh",
         location: "Korea",
@@ -70,7 +61,7 @@ const Index = () => {
         difficulty: 3,
         ingredients: ["Japanese curry packet (golden curry)", "potatoes", "Carrots", "Onion", "Beef/chicken", "Rice"],
         instructions: ["Choose whatever protein you want or none at all. If your protein is beef, pork, chicken, or lamb, cut it into large bite (or two bite) sized pieces. Cut a medium to large onion into a medium dice.", "Saute your onions in some butter or vegetable oil. When the onions are translucent, add the terrestrial protein (but not fish or tofu yet - save those for later).", "When the protein is starting to brown, add about two cups of water. Cover and bring to a boil, then reduce to a simmer. Let simmer for about 10 minutes.", "Add the curry bricks and stir to dissolve. If you're making a fish or tofu curry, add that after the bricks are completely incorporated. Bring back to a simmer. Serve with/over rice or udon."],
-        chefsComments: "No I just make it with my friends often; very comforting dish and can take away your worries from terrible schoolwork. Yayyy this is great project Hisu 😁"
+        chefsComments: "I just make it with my friends often; very comforting dish and can take away your worries from terrible schoolwork. Yayyy this is great project Hisu 😁"
       },
       {
         title: "soondobu",
@@ -92,7 +83,7 @@ const Index = () => {
       },
       {
         title: "西红柿炒鸡蛋",
-        author: "",
+        author: "anon",
         location: "Earth",
         difficulty: 1,
         ingredients: ["Eggs and tomato"],
@@ -115,10 +106,19 @@ const Index = () => {
         difficulty: 2,
         ingredients: ["basic pasta ingredients but with vodka!"],
         instructions: ["you can search them up on the internet!"],
-        chefsComments: "it just takes nice 🧑‍🍳 nopee"
+        chefsComments: "it just takes nice 🧑‍🍳"
       }
     ],
     snacks: [
+      {
+        title: "Teriyaki Sauce",
+        author: "Metta",
+        location: "My homeland is the Philippines, my heart is in Hong Kong, and my life is in Gill.",
+        difficulty: 1,
+        ingredients: ["1.5 TSP Brown Sugar", "1 TSP honey", "1/2 TSP Sesame Oil", "1/2 TSP garlic"],
+        instructions: ["When I can't find something that I want to eat, there's always grilled chicken on the salad bar, broccoli, snow peas, and rice. So I make a quick teriyaki sauce.", "Mix all the sauce ingredients together in a bowl and microwave for about 30 seconds.", "Get some grilled chicken from the salad bar and other veggies that you want toss in the sauce and put back in the microwave for another 30 seconds.", "Spoon over a bowl of white rice and enjoy!"],
+        chefsComments: "When I was a student, it wasn't common to have the diversity of dishes that we currently have today. When I missed home, I wanted a comfort food that was quick and always accessible. All the ingredients for the teriyaki sauce can be found during our meals - so I always had a go to meal when I needed something different from what was being served."
+      },
       {
         title: "예찬원 바삭군 시즈닝 먹태",
         author: "julie ahn hehehe",
@@ -153,7 +153,7 @@ const Index = () => {
         difficulty: 1,
         ingredients: ["Chicken (shredded)", "cream cheese", "Mexican cheese", "buffalo sauce", "maybe some salt and pepper"],
         instructions: ["Chicken", "shred the chicken", "add sour cream and buffalo sauce", "cheese on top and inside", "bake it or microwave it", "get a chip"],
-        chefsComments: "I like buffalo chicken dip a lot and it's so easy to make at school Nope hope you make a fire cook book send me a copy"
+        chefsComments: "I like buffalo chicken dip a lot and it's so easy to make at school"
       },
       {
         title: "Spam fried rice",
@@ -203,35 +203,6 @@ const Index = () => {
         chefsComments: "I first starting making these cookies during Covid and my family really loves them. They always ask me to make them for them when I'm home. I just really love chocolate chip cookies and they remind me of the cherished time that I spend with my family. I hope readers will experience the warmth and comfort of a good cookie :) I got this recipe from https://joyfoodsunshine.com/the-most-amazing-chocolate-chip-cookies/#wprm-recipe-container-8678"
       }
     ],
-    comfort: [
-      {
-        title: "my favorite pasta ever",
-        author: "",
-        location: "mexico",
-        difficulty: 2,
-        ingredients: ["short pasta", "olive oil", "garlic paste", "tomato paste", "pepper", "chili flakes", "heavy cream", "Parmesan cheese"],
-        instructions: ["boil pasta and drain water", "in a pan sautée the garlic paste, tomato paste, chili flakes and pepper in olive oil", "add cream until the sauce is orange", "add cheese", "add pasta"],
-        chefsComments: "It's originally pasta alla vodka, but this one is without so it can be in a dorm. It's from Italy and it's my favorite dish to make my friends."
-      },
-      {
-        title: "superb smoothie for two 😍",
-        author: "serafina",
-        location: "Hong Kong",
-        difficulty: 1,
-        ingredients: ["BLENDER ESSENTIAL (borrow one from faculty, no illegal blenders allowed)", "1 Banana", "a cup of milk", "two handfuls of berries or other fruit (frozen or fresh)", "a decent amount of ice based on preference", "sweet yogurt (plain greek yogurt isn't tasty let's be real)", "honey or other sweetener if the fruit you use isn't ripe enough (usually not needed)"],
-        instructions: ["Put it all in the blender and blend until smooth! Pour into two or more glasses. Hardest part is acquiring materials."],
-        chefsComments: "Although this is a very basic recipe, I find that simple dishes are often the most comforting. This is the first thing my mom taught me to make, so I've had a million of these smoothies since I was little. If the smoothie doesn't turn out well, it's really fun to troubleshoot by adding in random things! The sky is the limit. i like your thinking, hisu"
-      },
-      {
-        title: "Teriyaki Sauce",
-        author: "Metta",
-        location: "My homeland is the Philippines, my heart is in Hong Kong, and my life is in Gill.",
-        difficulty: 1,
-        ingredients: ["1.5 TSP Brown Sugar", "1 TSP honey", "1/2 TSP Sesame Oil", "1/2 TSP garlic"],
-        instructions: ["When I can't find something that I want to eat, there's always grilled chicken on the salad bar, broccoli, snow peas, and rice. So I make a quick teriyaki sauce.", "Mix all the sauce ingredients together in a bowl and microwave for about 30 seconds.", "Get some grilled chicken from the salad bar and other veggies that you want toss in the sauce and put back in the microwave for another 30 seconds.", "Spoon over a bowl of white rice and enjoy!"],
-        chefsComments: "When I was a student, it wasn't common to have the diversity of dishes that we currently have today. When I missed home, I wanted a comfort food that was quick and always accessible. All the ingredients for the teriyaki sauce can be found during our meals - so I always had a go to meal when I needed something different from what was being served."
-      }
-    ],
     healthy: [
       {
         title: "Over night oats",
@@ -241,9 +212,45 @@ const Index = () => {
         ingredients: ["Water", "Oats", "Chia Seeds", "Milk or Yogurt", "Coco powder", "honey", "fruit"],
         instructions: ["grab a container the can seal", "add and equal amout of milk or yogurt with chia seeds and oats", "Mix", "add the toppings like coco powder and honey", "refrigerate overnight", "in the morning top with the fruit"],
         chefsComments: "I really value my time in the mornings so this is a super easy meal I can eat on the go while also getting a lot of nutrition."
+      },
+      {
+        title: "superb smoothie for two 😍",
+        author: "serafina",
+        location: "Hong Kong",
+        difficulty: 1,
+        ingredients: ["BLENDER ESSENTIAL (borrow one from faculty, no illegal blenders allowed)", "1 Banana", "a cup of milk", "two handfuls of berries or other fruit (frozen or fresh)", "a decent amount of ice based on preference", "sweet yogurt (plain greek yogurt isn't tasty let's be real)", "honey or other sweetener if the fruit you use isn't ripe enough (usually not needed)"],
+        instructions: ["Put it all in the blender and blend until smooth! Pour into two or more glasses. Hardest part is acquiring materials."],
+        chefsComments: "Although this is a very basic recipe, I find that simple dishes are often the most comforting. This is the first thing my mom taught me to make, so I've had a million of these smoothies since I was little. If the smoothie doesn't turn out well, it's really fun to troubleshoot by adding in random things! The sky is the limit."
+      },
+      {
+        title: "soondobu",
+        author: "WILLIAM LAWS 🗣️🗣️⁉️⁉️🔥🔥",
+        location: "SAUDI ARABIA",
+        difficulty: 1,
+        ingredients: ["soondobu packet (around $15)", "Kalbi (around $45, but will last for several meals)", "water 🗣️"],
+        instructions: ["boil water", "soup base in and kalbi", "dobu in", "wait for three minutes 🔥🔥", "EAT 🗣️🗣️🔥🔥⁉️⁉️"],
+        chefsComments: "my mom makes it for me a lot and i make it for myself when i dont have time - its easy asf and its the only korean dish ik how to make - yummy"
+      },
+      {
+        title: "西红柿炒鸡蛋",
+        author: "anon",
+        location: "Earth",
+        difficulty: 1,
+        ingredients: ["Eggs and tomato"],
+        instructions: ["Scramble the eggs with some oil; put more oil in a pan before putting the sliced tomatoes in. Cook the tomatos for a while until they become soft and add the scrambled eggs in. Add some salt"],
+        chefsComments: "It's just good"
       }
     ],
     quick: [
+      {
+        title: "phibrodchefs",
+        author: "Phoenix",
+        location: "New Zealand",
+        difficulty: 1,
+        ingredients: ["Bread", "cheese", "lettuce", "mayonnaise", "chicken"],
+        instructions: ["It's fr just a sandwich with extra mayo"],
+        chefsComments: "Bros will for real taste heaven when they have it. Don't over do anything else apart from the mayonnaise. Just tastes like a nice summer meal tbh."
+      },
       {
         title: "Ham and cheese griddle",
         author: "Jaxon Payne",
@@ -251,7 +258,7 @@ const Index = () => {
         difficulty: 2,
         ingredients: ["Sandwich bread specifically the subway type", "oil and vinegar", "cheese", "onion", "lettuce", "mayo", "Panini press"],
         instructions: ["Get bread", "Put ham on one side very small bit of mayo with the cheese on the other side. Fold together with small squirt of oil and vinegar.", "Panini press until cheese is melting out the sides.", "Eat like that or add lettuce and onions into sandwich, retomar quickly, cover with oil and vinegar."],
-        chefsComments: "Every Sunday I eat this because dhall is closed and I get hungry and they only have this stuff out. It's awesome because it basically becomes a ham and cheese cracker if you press it right so you can throw like 4 of them down before you feel like you ate one actual sandwich No!"
+        chefsComments: "Every Sunday I eat this because dhall is closed and I get hungry and they only have this stuff out. It's awesome because it basically becomes a ham and cheese cracker if you press it right so you can throw like 4 of them down before you feel like you ate one actual sandwich"
       }
     ]
   };
@@ -270,7 +277,7 @@ const Index = () => {
               <ChefHat className="w-12 h-12 text-primary-foreground" />
             </div>
           </div>
-          <h1 className="font-heading text-4xl md:text-6xl font-bold text-primary-foreground mb-6">
+          <h1 className="font-heading text-4xl md:text-6xl font-bold text-white mb-6">
             The Ultimate Boarding School Cookbook
           </h1>
           <p className="text-lg md:text-xl text-primary-foreground/90 max-w-3xl mx-auto leading-relaxed">
@@ -285,7 +292,7 @@ const Index = () => {
       {/* Category Navigation */}
       <div className="bg-primary py-8 px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             <button
               onClick={() => scrollToSection('mains')}
               className="flex flex-col items-center gap-2 p-4 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors group"
@@ -306,13 +313,6 @@ const Index = () => {
             >
               <Cookie className="w-8 h-8 text-primary-foreground group-hover:scale-110 transition-transform" />
               <span className="text-sm font-medium text-primary-foreground text-center">Sweet Treats</span>
-            </button>
-            <button
-              onClick={() => scrollToSection('comfort')}
-              className="flex flex-col items-center gap-2 p-4 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors group"
-            >
-              <Soup className="w-8 h-8 text-primary-foreground group-hover:scale-110 transition-transform" />
-              <span className="text-sm font-medium text-primary-foreground text-center">Comfort Bowls & Soups</span>
             </button>
             <button
               onClick={() => scrollToSection('healthy')}
@@ -405,25 +405,6 @@ const Index = () => {
             </div>
           </RecipeSection>
 
-          {/* Comfort Bowls & Soups */}
-          <RecipeSection
-            id="comfort"
-            title="Comfort Bowls & Soups"
-            description="Warm, cozy meals for when you need a hug in food form."
-            icon={<Soup className="w-16 h-16" />}
-          >
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
-              {recipes.comfort.map((recipe, index) => (
-                <RecipeCardCompact 
-                  key={index} 
-                  title={recipe.title}
-                  author={recipe.author}
-                  difficulty={recipe.difficulty}
-                  onClick={() => handleRecipeClickWithScroll(recipe)}
-                />
-              ))}
-            </div>
-          </RecipeSection>
 
           {/* Light & Healthy */}
           <RecipeSection

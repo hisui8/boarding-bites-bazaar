@@ -89,7 +89,7 @@ export const RecipeModal = ({ recipe, isOpen, onClose }: RecipeModalProps) => {
           
           {recipe.chefsComments && (
             <div className="bg-secondary/50 rounded-lg p-4 border-l-4 border-primary">
-              <h3 className="font-heading font-medium text-foreground mb-2">Chef's Comments:</h3>
+              <h3 className="font-heading font-medium text-foreground mb-2">Chef's Stories and Comments:</h3>
               <p className="text-sm italic text-muted-foreground">"{recipe.chefsComments}"</p>
             </div>
           )}
