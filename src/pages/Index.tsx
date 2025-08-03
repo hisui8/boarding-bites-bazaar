@@ -9,14 +9,19 @@ const Index = () => {
   const [selectedRecipe, setSelectedRecipe] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleRecipeClick = (recipe) => {
-    setSelectedRecipe(recipe);
-    setIsModalOpen(true);
-  };
 
   const closeModal = () => {
     setIsModalOpen(false);
     setSelectedRecipe(null);
+    // Re-enable scrolling when modal closes
+    document.body.style.overflow = 'unset';
+  };
+
+  const handleRecipeClickWithScroll = (recipe) => {
+    setSelectedRecipe(recipe);
+    setIsModalOpen(true);
+    // Disable scrolling when modal opens
+    document.body.style.overflow = 'hidden';
   };
 
   // All recipes organized by category
@@ -274,28 +279,58 @@ const Index = () => {
             your dorm room feel a little more like home, these student-tested recipes are here to help 
             you build community, one meal at a time.
           </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Button 
-              onClick={() => scrollToSection('recipe-sections')}
-              variant="secondary" 
-              size="lg"
-              className="bg-background/90 text-foreground hover:bg-background"
-            >
-              <BookOpen className="w-4 h-4 mr-2" />
-              Browse Recipes
-            </Button>
-            <Button 
-              onClick={() => scrollToSection('submit-recipe')}
-              variant="outline" 
-              size="lg"
-              className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
-            >
-              <Heart className="w-4 h-4 mr-2" />
-              Share Your Recipe
-            </Button>
-          </div>
         </div>
       </header>
+
+      {/* Category Navigation */}
+      <div className="bg-primary py-8 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            <button
+              onClick={() => scrollToSection('mains')}
+              className="flex flex-col items-center gap-2 p-4 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors group"
+            >
+              <ChefHat className="w-8 h-8 text-primary-foreground group-hover:scale-110 transition-transform" />
+              <span className="text-sm font-medium text-primary-foreground text-center">Dorm-Friendly Mains</span>
+            </button>
+            <button
+              onClick={() => scrollToSection('snacks')}
+              className="flex flex-col items-center gap-2 p-4 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors group"
+            >
+              <Coffee className="w-8 h-8 text-primary-foreground group-hover:scale-110 transition-transform" />
+              <span className="text-sm font-medium text-primary-foreground text-center">Savory Snacks & Sides</span>
+            </button>
+            <button
+              onClick={() => scrollToSection('sweets')}
+              className="flex flex-col items-center gap-2 p-4 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors group"
+            >
+              <Cookie className="w-8 h-8 text-primary-foreground group-hover:scale-110 transition-transform" />
+              <span className="text-sm font-medium text-primary-foreground text-center">Sweet Treats</span>
+            </button>
+            <button
+              onClick={() => scrollToSection('comfort')}
+              className="flex flex-col items-center gap-2 p-4 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors group"
+            >
+              <Soup className="w-8 h-8 text-primary-foreground group-hover:scale-110 transition-transform" />
+              <span className="text-sm font-medium text-primary-foreground text-center">Comfort Bowls & Soups</span>
+            </button>
+            <button
+              onClick={() => scrollToSection('healthy')}
+              className="flex flex-col items-center gap-2 p-4 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors group"
+            >
+              <Apple className="w-8 h-8 text-primary-foreground group-hover:scale-110 transition-transform" />
+              <span className="text-sm font-medium text-primary-foreground text-center">Light & Healthy</span>
+            </button>
+            <button
+              onClick={() => scrollToSection('quick')}
+              className="flex flex-col items-center gap-2 p-4 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors group"
+            >
+              <Zap className="w-8 h-8 text-primary-foreground group-hover:scale-110 transition-transform" />
+              <span className="text-sm font-medium text-primary-foreground text-center">Quick Bites & Hacks</span>
+            </button>
+          </div>
+        </div>
+      </div>
 
       <div className="max-w-7xl mx-auto px-4">
         {/* Recipe Sections */}
@@ -312,18 +347,19 @@ const Index = () => {
 
           {/* Dorm-Friendly Mains */}
           <RecipeSection
+            id="mains"
             title="Dorm-Friendly Mains"
             description="Hearty meals you can make with minimal equipment that will actually fill you up and keep you going."
             icon={<ChefHat className="w-16 h-16" />}
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
               {recipes.mains.map((recipe, index) => (
                 <RecipeCardCompact 
                   key={index} 
                   title={recipe.title}
                   author={recipe.author}
                   difficulty={recipe.difficulty}
-                  onClick={() => handleRecipeClick(recipe)}
+                  onClick={() => handleRecipeClickWithScroll(recipe)}
                 />
               ))}
             </div>
@@ -331,18 +367,19 @@ const Index = () => {
 
           {/* Savory Snacks & Sides */}
           <RecipeSection
+            id="snacks"
             title="Savory Snacks & Sides"
             description="Perfect for study sessions, movie nights, or when you need something satisfying between meals."
             icon={<Coffee className="w-16 h-16" />}
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
               {recipes.snacks.map((recipe, index) => (
                 <RecipeCardCompact 
                   key={index} 
                   title={recipe.title}
                   author={recipe.author}
                   difficulty={recipe.difficulty}
-                  onClick={() => handleRecipeClick(recipe)}
+                  onClick={() => handleRecipeClickWithScroll(recipe)}
                 />
               ))}
             </div>
@@ -350,18 +387,19 @@ const Index = () => {
 
           {/* Sweet Treats */}
           <RecipeSection
+            id="sweets"
             title="Sweet Treats"
             description="Because sometimes you need a little sugar to get through the day (or night)."
             icon={<Cookie className="w-16 h-16" />}
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
               {recipes.sweets.map((recipe, index) => (
                 <RecipeCardCompact 
                   key={index} 
                   title={recipe.title}
                   author={recipe.author}
                   difficulty={recipe.difficulty}
-                  onClick={() => handleRecipeClick(recipe)}
+                  onClick={() => handleRecipeClickWithScroll(recipe)}
                 />
               ))}
             </div>
@@ -369,18 +407,19 @@ const Index = () => {
 
           {/* Comfort Bowls & Soups */}
           <RecipeSection
+            id="comfort"
             title="Comfort Bowls & Soups"
             description="Warm, cozy meals for when you need a hug in food form."
             icon={<Soup className="w-16 h-16" />}
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
               {recipes.comfort.map((recipe, index) => (
                 <RecipeCardCompact 
                   key={index} 
                   title={recipe.title}
                   author={recipe.author}
                   difficulty={recipe.difficulty}
-                  onClick={() => handleRecipeClick(recipe)}
+                  onClick={() => handleRecipeClickWithScroll(recipe)}
                 />
               ))}
             </div>
@@ -388,18 +427,19 @@ const Index = () => {
 
           {/* Light & Healthy */}
           <RecipeSection
+            id="healthy"
             title="Light & Healthy"
             description="Nourishing options for when you want to feel good inside and out."
             icon={<Apple className="w-16 h-16" />}
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
               {recipes.healthy.map((recipe, index) => (
                 <RecipeCardCompact 
                   key={index} 
                   title={recipe.title}
                   author={recipe.author}
                   difficulty={recipe.difficulty}
-                  onClick={() => handleRecipeClick(recipe)}
+                  onClick={() => handleRecipeClickWithScroll(recipe)}
                 />
               ))}
             </div>
@@ -407,18 +447,19 @@ const Index = () => {
 
           {/* Quick Bites & Hacks */}
           <RecipeSection
+            id="quick"
             title="Quick Bites & Hacks"
             description="Fast solutions for busy schedules and creative ways to upgrade basic ingredients."
             icon={<Zap className="w-16 h-16" />}
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
               {recipes.quick.map((recipe, index) => (
                 <RecipeCardCompact 
                   key={index} 
                   title={recipe.title}
                   author={recipe.author}
                   difficulty={recipe.difficulty}
-                  onClick={() => handleRecipeClick(recipe)}
+                  onClick={() => handleRecipeClickWithScroll(recipe)}
                 />
               ))}
             </div>

@@ -8,7 +8,7 @@
   :root {
     /* Light brown cozy color palette */
     --background: 35 20% 96%;   /* Very light cream */
-    --foreground: 30 30% 20%;   /* Dark warm brown */
+    --foreground: 25 20% 25%;   /* Dark brown for better readability */
 
     --card: 35 25% 94%;         /* Light brown-cream */
     --card-foreground: 30 30% 20%;

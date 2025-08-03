@@ -37,7 +37,7 @@ export const RecipeCardCompact = ({
       </h3>
       
       <p className="text-sm text-muted-foreground mb-3">
-        by {author}
+        by {author || "anon"}
       </p>
       
       <div className="flex items-center gap-1">

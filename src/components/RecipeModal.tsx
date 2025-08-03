@@ -34,8 +34,14 @@ export const RecipeModal = ({ recipe, isOpen, onClose }: RecipeModalProps) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
-      <div className="bg-card rounded-lg p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
+    <div 
+      className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50"
+      onClick={onClose}
+    >
+      <div 
+        className="bg-card rounded-lg p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
+        onClick={(e) => e.stopPropagation()}
+      >
         <div className="flex justify-between items-start mb-4">
           <div className="flex-1">
             <h2 className="font-heading text-2xl font-bold text-foreground mb-2">
