@@ -64,15 +64,6 @@ const Index = () => {
         chefsComments: "I just make it with my friends often; very comforting dish and can take away your worries from terrible schoolwork. Yayyy this is great project Hisu 😁"
       },
       {
-        title: "soondobu",
-        author: "WILLIAM LAWS 🗣️🗣️⁉️⁉️🔥🔥",
-        location: "SAUDI ARABIA",
-        difficulty: 1,
-        ingredients: ["soondobu packet (around $15)", "Kalbi (around $45, but will last for several meals)", "water 🗣️"],
-        instructions: ["boil water", "soup base in and kalbi", "dobu in", "wait for three minutes 🔥🔥", "EAT 🗣️🗣️🔥🔥⁉️⁉️"],
-        chefsComments: "my mom makes it for me a lot and i make it for myself when i dont have time - its easy asf and its the only korean dish ik how to make - yummy COMMENTS"
-      },
-      {
         title: "Quesadillas",
         author: "vL",
         location: "México",
@@ -80,6 +71,15 @@ const Index = () => {
         ingredients: ["oaxaca cheese", "corn tortilla"],
         instructions: ["Put tortilla in the stove and when it is hot from Both sides add the cheese in half the circle of the tortilla. When the cheese starts to melt fold the tortilla. Before doing that u can also add spinach"],
         chefsComments: "A real quesadilla"
+      },
+      {
+        title: "soondobu",
+        author: "WILLIAM LAWS 🗣️🗣️⁉️⁉️🔥🔥",
+        location: "SAUDI ARABIA",
+        difficulty: 1,
+        ingredients: ["soondobu packet (around $15)", "Kalbi (around $45, but will last for several meals)", "water 🗣️"],
+        instructions: ["boil water", "soup base in and kalbi", "dobu in", "wait for three minutes 🔥🔥", "EAT 🗣️🗣️🔥🔥⁉️⁉️"],
+        chefsComments: "my mom makes it for me a lot and i make it for myself when i dont have time - its easy asf and its the only korean dish ik how to make - yummy COMMENTS"
       },
       {
         title: "西红柿炒鸡蛋",
@@ -223,15 +223,6 @@ const Index = () => {
         chefsComments: "Although this is a very basic recipe, I find that simple dishes are often the most comforting. This is the first thing my mom taught me to make, so I've had a million of these smoothies since I was little. If the smoothie doesn't turn out well, it's really fun to troubleshoot by adding in random things! The sky is the limit."
       },
       {
-        title: "soondobu",
-        author: "WILLIAM LAWS 🗣️🗣️⁉️⁉️🔥🔥",
-        location: "SAUDI ARABIA",
-        difficulty: 1,
-        ingredients: ["soondobu packet (around $15)", "Kalbi (around $45, but will last for several meals)", "water 🗣️"],
-        instructions: ["boil water", "soup base in and kalbi", "dobu in", "wait for three minutes 🔥🔥", "EAT 🗣️🗣️🔥🔥⁉️⁉️"],
-        chefsComments: "my mom makes it for me a lot and i make it for myself when i dont have time - its easy asf and its the only korean dish ik how to make - yummy"
-      },
-      {
         title: "西红柿炒鸡蛋",
         author: "anon",
         location: "Earth",
@@ -280,7 +271,7 @@ const Index = () => {
           <h1 className="font-heading text-4xl md:text-6xl font-bold text-white mb-6">
             The Ultimate Boarding School Cookbook
           </h1>
-          <p className="text-lg md:text-xl text-primary-foreground/90 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-white max-w-3xl mx-auto leading-relaxed">
             Food has this magical way of bringing people together, especially when you're far from home. 
             Whether you're dealing with homesickness, celebrating a small victory, or just trying to make 
             your dorm room feel a little more like home, these student-tested recipes are here to help 
