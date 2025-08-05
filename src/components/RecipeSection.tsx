@@ -15,8 +15,8 @@ export const RecipeSection = ({ id, title, description, icon, children }: Recipe
         <div className="flex justify-center mb-4 text-primary">
           {icon}
         </div>
-        <h2 className="font-heading text-3xl font-bold text-foreground mb-3">{title}</h2>
-        <p className="text-muted-foreground max-w-2xl mx-auto">{description}</p>
+        <h2 className="font-heading text-3xl font-bold text-foreground mb-3 section-title">{title}</h2>
+        <p className="text-muted-foreground max-w-2xl mx-auto section-description">{description}</p>
       </div>
       {children}
     </section>
