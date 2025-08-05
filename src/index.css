@@ -16,7 +16,7 @@
     --popover: 35 25% 94%;
     --popover-foreground: 30 30% 20%;
 
-    --primary: 15 65% 50%;      /* Warm terracotta #cc6633 */
+    --primary: 15 45% 55%;      /* Soft warm terracotta */
     --primary-foreground: 30 20% 95%;
 
     --secondary: 35 25% 85%;    /* Very light brown */
@@ -42,8 +42,8 @@
     --recipe-medium: 42 85% 65%;    /* Butter yellow */
     --recipe-hard: 15 70% 70%;      /* Soft orange */
     
-    /* Warm terracotta gradients */
-    --gradient-warm: hsl(15 65% 50%);
+    /* Soft warm terracotta gradients */
+    --gradient-warm: hsl(15 45% 55%);
     --gradient-subtle: linear-gradient(180deg, hsl(35 20% 96%), hsl(35 15% 92%));
     
     /* Shadows with warmth */
