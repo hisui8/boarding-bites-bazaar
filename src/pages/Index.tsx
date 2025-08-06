@@ -3,6 +3,7 @@ import { ChefHat, Coffee, Cookie, Soup, Apple, Zap, Heart, BookOpen, ExternalLin
 import { RecipeCardCompact } from "@/components/RecipeCardCompact";
 import { RecipeModal } from "@/components/RecipeModal";
 import { RecipeSection } from "@/components/RecipeSection";
+import { AddYoursSection } from "@/components/AddYoursSection";
 import { Button } from "@/components/ui/button";
 
 const Index = () => {
@@ -280,45 +281,6 @@ const Index = () => {
         </div>
       </header>
 
-      {/* Food Gallery Section */}
-      <section className="py-12 bg-gradient-subtle">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-8">
-            <h2 className="font-heading text-2xl font-bold text-foreground mb-3 section-title">Real Student Creations</h2>
-            <p className="text-muted-foreground section-description">From dorm kitchens to dining halls - see what students are actually making</p>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="rounded-lg overflow-hidden shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-cozy)] transition-all duration-300">
-              <img 
-                src="/lovable-uploads/ab62cb69-3e9a-42b6-b739-e32be31fc039.png" 
-                alt="Delicious curry with rice and dumplings" 
-                className="w-full h-48 object-cover"
-              />
-            </div>
-            <div className="rounded-lg overflow-hidden shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-cozy)] transition-all duration-300">
-              <img 
-                src="/lovable-uploads/5fcae279-9ff4-4440-9436-075c82058d26.png" 
-                alt="Instant ramen with dessert" 
-                className="w-full h-48 object-cover"
-              />
-            </div>
-            <div className="rounded-lg overflow-hidden shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-cozy)] transition-all duration-300">
-              <img 
-                src="/lovable-uploads/405e0730-6018-4417-b666-de9e5705172b.png" 
-                alt="Fresh pasta with pesto sauce" 
-                className="w-full h-48 object-cover"
-              />
-            </div>
-            <div className="rounded-lg overflow-hidden shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-cozy)] transition-all duration-300">
-              <img 
-                src="/lovable-uploads/4ab7f9a7-5c7b-4a22-a386-1188af33aafb.png" 
-                alt="Avocado toast and bagel breakfast" 
-                className="w-full h-48 object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Category Navigation */}
       <div className="bg-primary py-8 px-4">
@@ -436,25 +398,6 @@ const Index = () => {
             </div>
           </RecipeSection>
 
-          {/* Food Break - Second Gallery */}
-          <div className="py-8">
-            <div className="grid grid-cols-2 gap-4 max-w-4xl mx-auto">
-              <div className="rounded-lg overflow-hidden shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-cozy)] transition-all duration-300">
-                <img 
-                  src="/lovable-uploads/518571a9-9c35-444f-a121-5a5c7ed12d42.png" 
-                  alt="Making fresh pancakes in a pan" 
-                  className="w-full h-32 object-cover"
-                />
-              </div>
-              <div className="rounded-lg overflow-hidden shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-cozy)] transition-all duration-300">
-                <img 
-                  src="/lovable-uploads/de0a47be-ac27-4c82-8e81-7de9abe96d7d.png" 
-                  alt="Homemade quesadilla cut into slices" 
-                  className="w-full h-32 object-cover"
-                />
-              </div>
-            </div>
-          </div>
 
 
           {/* Light & Healthy */}
@@ -497,58 +440,8 @@ const Index = () => {
             </div>
           </RecipeSection>
 
-          {/* Food Break - Third Gallery */}
-          <div className="py-8">
-            <div className="grid grid-cols-2 gap-4 max-w-4xl mx-auto">
-              <div className="rounded-lg overflow-hidden shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-cozy)] transition-all duration-300">
-                <img 
-                  src="/lovable-uploads/2a085e41-428c-496e-bbd0-1949c5858ad9.png" 
-                  alt="Crispy pan-fried dumplings on blue plate" 
-                  className="w-full h-32 object-cover"
-                />
-              </div>
-              <div className="rounded-lg overflow-hidden shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-cozy)] transition-all duration-300">
-                <img 
-                  src="/lovable-uploads/97c400d4-385c-4647-a4f8-a3994101030d.png" 
-                  alt="Healthy yogurt bowls with fresh blueberries" 
-                  className="w-full h-32 object-cover"
-                />
-              </div>
-            </div>
-          </div>
         </div>
 
-        {/* Final Food Inspiration Section */}
-        <section className="py-12 bg-gradient-subtle rounded-lg mb-16">
-          <div className="max-w-6xl mx-auto px-4 text-center">
-            <h2 className="font-heading text-2xl font-bold text-foreground mb-6 section-title">Get Inspired</h2>
-            <p className="text-muted-foreground mb-8 section-description">Every meal is a chance to create something special, even in the smallest kitchen</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="rounded-lg overflow-hidden shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-cozy)] transition-all duration-300">
-                <img 
-                  src="/lovable-uploads/5fcae279-9ff4-4440-9436-075c82058d26.png" 
-                  alt="Comforting instant ramen meal" 
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-4 bg-card">
-                  <h3 className="font-medium text-foreground">Comfort in Every Bowl</h3>
-                  <p className="text-sm text-muted-foreground mt-1">Sometimes the simplest meals bring the most joy</p>
-                </div>
-              </div>
-              <div className="rounded-lg overflow-hidden shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-cozy)] transition-all duration-300">
-                <img 
-                  src="/lovable-uploads/ab62cb69-3e9a-42b6-b739-e32be31fc039.png" 
-                  alt="Hearty curry and rice meal" 
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-4 bg-card">
-                  <h3 className="font-medium text-foreground">Home Away From Home</h3>
-                  <p className="text-sm text-muted-foreground mt-1">Creating familiar flavors with love and creativity</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
 
         {/* Submit Recipe Section */}
         <div id="submit-recipe" className="py-16">
@@ -574,6 +467,18 @@ const Index = () => {
             </Button>
           </div>
         </div>
+
+        {/* Add Yours Section */}
+        <AddYoursSection images={[
+          "/lovable-uploads/ab62cb69-3e9a-42b6-b739-e32be31fc039.png",
+          "/lovable-uploads/5fcae279-9ff4-4440-9436-075c82058d26.png",
+          "/lovable-uploads/405e0730-6018-4417-b666-de9e5705172b.png",
+          "/lovable-uploads/4ab7f9a7-5c7b-4a22-a386-1188af33aafb.png",
+          "/lovable-uploads/97c400d4-385c-4647-a4f8-a3994101030d.png",
+          "/lovable-uploads/518571a9-9c35-444f-a121-5a5c7ed12d42.png",
+          "/lovable-uploads/de0a47be-ac27-4c82-8e81-7de9abe96d7d.png",
+          "/lovable-uploads/2a085e41-428c-496e-bbd0-1949c5858ad9.png"
+        ]} />
 
         {/* Recipe Modal */}
         <RecipeModal 
