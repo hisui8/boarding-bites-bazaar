@@ -10,12 +10,12 @@ interface AddYoursSectionProps {
 
 export const AddYoursSection = ({ images }: AddYoursSectionProps) => {
   const [uploadedImages, setUploadedImages] = useState<string[]>([]);
+  const [isDragOver, setIsDragOver] = useState(false);
   const { toast } = useToast();
 
-  const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const files = event.target.files;
-    if (files) {
-      Array.from(files).forEach(file => {
+  const processFiles = (files: FileList | File[]) => {
+    Array.from(files).forEach(file => {
+      if (file.type.startsWith('image/')) {
         const reader = new FileReader();
         reader.onload = (e) => {
           if (e.target?.result) {
@@ -27,7 +27,33 @@ export const AddYoursSection = ({ images }: AddYoursSectionProps) => {
           }
         };
         reader.readAsDataURL(file);
-      });
+      }
+    });
+  };
+
+  const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const files = event.target.files;
+    if (files) {
+      processFiles(files);
+    }
+  };
+
+  const handleDragOver = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragOver(true);
+  };
+
+  const handleDragLeave = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragOver(false);
+  };
+
+  const handleDrop = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragOver(false);
+    const files = e.dataTransfer.files;
+    if (files) {
+      processFiles(files);
     }
   };
 
@@ -44,41 +70,43 @@ export const AddYoursSection = ({ images }: AddYoursSectionProps) => {
             Share your culinary masterpieces! Upload photos of your creations and inspire fellow students around the world.
           </p>
           
-          {/* Upload Options */}
-          <div className="mb-8 flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <label htmlFor="camera-upload" className="cursor-pointer">
-              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
-                <Camera className="w-4 h-4 mr-2" />
-                Take Photo
-              </Button>
-            </label>
-            <label htmlFor="gallery-upload" className="cursor-pointer">
-              <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-                <ImageIcon className="w-4 h-4 mr-2" />
-                Choose from Gallery
-              </Button>
-            </label>
-            
-            {/* Camera Input */}
-            <input
-              id="camera-upload"
-              type="file"
-              accept="image/*"
-              capture="environment"
-              multiple
-              onChange={handleImageUpload}
-              className="hidden"
-            />
-            
-            {/* Gallery Input */}
-            <input
-              id="gallery-upload"
-              type="file"
-              accept="image/*"
-              multiple
-              onChange={handleImageUpload}
-              className="hidden"
-            />
+          {/* Unified Upload Area */}
+          <div className="mb-8">
+            <div
+              className={`relative border-2 border-dashed rounded-lg p-8 transition-all duration-300 cursor-pointer ${
+                isDragOver 
+                  ? 'border-primary bg-primary/5 scale-105' 
+                  : 'border-muted-foreground/25 hover:border-primary hover:bg-primary/5'
+              }`}
+              onDragOver={handleDragOver}
+              onDragLeave={handleDragLeave}
+              onDrop={handleDrop}
+              onClick={() => document.getElementById('file-upload')?.click()}
+            >
+              <div className="text-center">
+                <Upload className="w-12 h-12 mx-auto mb-4 text-primary" />
+                <h3 className="text-lg font-semibold mb-2 text-foreground">Upload Your Own!</h3>
+                <p className="text-muted-foreground mb-4">
+                  Drag & drop your images here, or click to browse
+                </p>
+                <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                  <Camera className="w-4 h-4 mr-2" />
+                  Choose Photos
+                </Button>
+                <p className="text-sm text-muted-foreground mt-2">
+                  Supports camera roll, computer files, and drag & drop
+                </p>
+              </div>
+              
+              <input
+                id="file-upload"
+                type="file"
+                accept="image/*"
+                multiple
+                onChange={handleImageUpload}
+                className="hidden"
+              />
+            </div>
           </div>
         </div>
 
