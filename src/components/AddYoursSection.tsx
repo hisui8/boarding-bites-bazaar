@@ -135,9 +135,9 @@ export const AddYoursSection = ({ images }: AddYoursSectionProps) => {
         <div className="text-center">
           <h3 className="text-2xl font-semibold mb-4 text-foreground">Get Inspired</h3>
           <p className="text-muted-foreground max-w-3xl mx-auto">
-            Every dish tells a story of comfort, creativity, and connection. These aren't just meals - 
-            they're moments of joy shared across dorm rooms, study sessions, and late-night cooking adventures. 
-            Your kitchen creations remind us that home isn't a place, it's a feeling we create together.
+            Every dish tells a story of <strong>comfort, creativity, and connection</strong> {"<3"} These aren't just meals - 
+            they're <strong>moments of joy</strong> shared across dorm rooms and late-night cooking adventures! 
+            Your kitchen creations remind us that <strong>home isn't a place, it's a feeling</strong> we create together {"<3"}
           </p>
         </div>
       </div>
