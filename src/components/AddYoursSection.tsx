@@ -69,49 +69,10 @@ export const AddYoursSection = ({ images }: AddYoursSectionProps) => {
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
             Share your culinary masterpieces! Upload photos of your creations and inspire fellow students around the world.
           </p>
-          
-          {/* Unified Upload Area */}
-          <div className="mb-8">
-            <div
-              className={`relative border-2 border-dashed rounded-lg p-8 transition-all duration-300 cursor-pointer ${
-                isDragOver 
-                  ? 'border-primary bg-primary/5 scale-105' 
-                  : 'border-muted-foreground/25 hover:border-primary hover:bg-primary/5'
-              }`}
-              onDragOver={handleDragOver}
-              onDragLeave={handleDragLeave}
-              onDrop={handleDrop}
-              onClick={() => document.getElementById('file-upload')?.click()}
-            >
-              <div className="text-center">
-                <Upload className="w-12 h-12 mx-auto mb-4 text-primary" />
-                <h3 className="text-lg font-semibold mb-2 text-foreground">Upload Your Own!</h3>
-                <p className="text-muted-foreground mb-4">
-                  Drag & drop your images here, or click to browse
-                </p>
-                <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
-                  <Camera className="w-4 h-4 mr-2" />
-                  Choose Photos
-                </Button>
-                <p className="text-sm text-muted-foreground mt-2">
-                  Supports camera roll, computer files, and drag & drop
-                </p>
-              </div>
-              
-              <input
-                id="file-upload"
-                type="file"
-                accept="image/*"
-                multiple
-                onChange={handleImageUpload}
-                className="hidden"
-              />
-            </div>
-          </div>
         </div>
 
         {/* Image Gallery */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {allImages.map((image, index) => (
             <Card key={index} className="overflow-hidden group hover:shadow-lg transition-all duration-300">
               <div className="relative aspect-square">
@@ -131,8 +92,47 @@ export const AddYoursSection = ({ images }: AddYoursSectionProps) => {
           ))}
         </div>
 
+        {/* Unified Upload Area */}
+        <div className="mb-12">
+          <div
+            className={`relative border-2 border-dashed rounded-lg p-8 transition-all duration-300 cursor-pointer ${
+              isDragOver 
+                ? 'border-primary bg-primary/5 scale-105' 
+                : 'border-muted-foreground/25 hover:border-primary hover:bg-primary/5'
+            }`}
+            onDragOver={handleDragOver}
+            onDragLeave={handleDragLeave}
+            onDrop={handleDrop}
+            onClick={() => document.getElementById('file-upload')?.click()}
+          >
+            <div className="text-center">
+              <Upload className="w-12 h-12 mx-auto mb-4 text-primary" />
+              <h3 className="text-lg font-semibold mb-2 text-foreground">Upload Your Own!</h3>
+              <p className="text-muted-foreground mb-4">
+                Drag & drop your images here, or click to browse
+              </p>
+              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                <Camera className="w-4 h-4 mr-2" />
+                Choose Photos
+              </Button>
+              <p className="text-sm text-muted-foreground mt-2">
+                Supports camera roll, computer files, and drag & drop
+              </p>
+            </div>
+            
+            <input
+              id="file-upload"
+              type="file"
+              accept="image/*"
+              multiple
+              onChange={handleImageUpload}
+              className="hidden"
+            />
+          </div>
+        </div>
+
         {/* Inspirational Message */}
-        <div className="text-center mt-12">
+        <div className="text-center">
           <h3 className="text-2xl font-semibold mb-4 text-foreground">Get Inspired</h3>
           <p className="text-muted-foreground max-w-3xl mx-auto">
             Every dish tells a story of comfort, creativity, and connection. These aren't just meals - 
