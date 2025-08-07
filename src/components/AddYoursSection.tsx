@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Camera, Upload, Heart, Star } from "lucide-react";
+import { Camera, Upload, Heart, Star, ImageIcon } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 interface AddYoursSectionProps {
@@ -44,16 +44,35 @@ export const AddYoursSection = ({ images }: AddYoursSectionProps) => {
             Share your culinary masterpieces! Upload photos of your creations and inspire fellow students around the world.
           </p>
           
-          {/* Upload Button */}
-          <div className="mb-8">
-            <label htmlFor="image-upload" className="cursor-pointer">
+          {/* Upload Options */}
+          <div className="mb-8 flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <label htmlFor="camera-upload" className="cursor-pointer">
               <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
                 <Camera className="w-4 h-4 mr-2" />
-                Upload Your Creation
+                Take Photo
               </Button>
             </label>
+            <label htmlFor="gallery-upload" className="cursor-pointer">
+              <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+                <ImageIcon className="w-4 h-4 mr-2" />
+                Choose from Gallery
+              </Button>
+            </label>
+            
+            {/* Camera Input */}
             <input
-              id="image-upload"
+              id="camera-upload"
+              type="file"
+              accept="image/*"
+              capture="environment"
+              multiple
+              onChange={handleImageUpload}
+              className="hidden"
+            />
+            
+            {/* Gallery Input */}
+            <input
+              id="gallery-upload"
               type="file"
               accept="image/*"
               multiple
