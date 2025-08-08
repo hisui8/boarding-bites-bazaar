@@ -270,13 +270,13 @@ const Index = () => {
             </div>
           </div>
           <h1 className="font-heading text-4xl md:text-6xl font-bold text-white mb-6 hero-title">
-            ✧･ﾟ: *✧･ﾟ: The Ultimate Boarding School Cookbook :･ﾟ✧*:･ﾟ✧
+            ⋆ The Ultimate Boarding School Cookbook ⋆
           </h1>
-          <p className="text-lg md:text-xl text-white max-w-3xl mx-auto leading-relaxed hero-description">
-            ੈ✩‧₊˚ Food has this magical way of bringing people together, especially when you're far from home ˚₊‧✩ੈ <br/>
+          <p className="text-lg md:text-xl text-white max-w-4xl mx-auto leading-relaxed hero-description text-center">
+            Food has this magical way of bringing people together, especially when you're far from home.<br/>
             Whether you're dealing with homesickness, celebrating a small victory, or just trying to make 
-            your dorm room feel a little more like home ✧･ﾟ these student-tested recipes are here to help 
-            you build community, one meal at a time ＊*•̩̩͙✩•̩̩͙*˚
+            your dorm room feel a little more like home, these student-tested recipes are here to help 
+            you build community, one meal at a time 𐙚⋆.˚
           </p>
         </div>
       </header>
@@ -330,11 +330,11 @@ const Index = () => {
         <div id="recipe-sections" className="py-16">
           <div className="text-center mb-12">
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
-              ＊*•̩̩͙✩•̩̩͙*˚　Recipe Collections　˚*•̩̩͙✩•̩̩͙*˚＊
+              ⋆ Recipe Collections ⋆
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              ੈ✩‧₊˚ From quick midnight snacks to comfort food that reminds you of home ˚₊‧✩ੈ <br/>
-              we've got recipes for every mood and moment ✧･ﾟ
+            <p className="text-muted-foreground max-w-3xl mx-auto text-center leading-relaxed">
+              From quick midnight snacks to comfort food that reminds you of home, 
+              we've got recipes for every mood and moment 𐙚⋆.˚
             </p>
           </div>
 
@@ -446,10 +446,10 @@ const Index = () => {
         {/* Submit Recipe Section */}
         <div id="submit-recipe" className="py-16">
           <div className="bg-card rounded-lg p-8 shadow-[var(--shadow-card)] text-center">
-            <h3 className="font-heading text-2xl font-bold text-foreground mb-3">✧･ﾟ: Share Your Recipe :･ﾟ✧</h3>
-            <p className="text-muted-foreground mb-6">
-              ੈ✩‧₊˚ Have a go-to recipe that's gotten you through late-night study sessions or homesick moments? ˚₊‧✩ੈ <br/>
-              Share it with fellow students and help build our community cookbook! ✧･ﾟ
+            <h3 className="font-heading text-2xl font-bold text-foreground mb-3">⋆ Share Your Recipe ⋆</h3>
+            <p className="text-muted-foreground mb-6 max-w-3xl mx-auto text-center leading-relaxed">
+              Have a go-to recipe that's gotten you through late-night study sessions or homesick moments? 
+              Share it with fellow students and help build our community cookbook 𐙚⋆.˚
             </p>
             <Button 
               asChild
@@ -494,9 +494,9 @@ const Index = () => {
           <div className="flex justify-center mb-4">
             <Heart className="w-8 h-8 text-primary" />
           </div>
-          <p className="text-muted-foreground">
-            ＊*•̩̩͙✩•̩̩͙*˚ Made with love by students, for students ˚*•̩̩͙✩•̩̩͙*˚＊ <br/>
-            Because everyone deserves a good meal, no matter how far from home they are ੈ✩‧₊˚
+          <p className="text-muted-foreground max-w-3xl mx-auto text-center leading-relaxed">
+            Made with love by students, for students. Because everyone deserves a good meal, 
+            no matter how far from home they are 𐙚⋆.˚
           </p>
         </div>
       </footer>
