@@ -64,10 +64,10 @@ export const AddYoursSection = ({ images }: AddYoursSectionProps) => {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold mb-4 text-foreground">
-            Add Yours - Student Creations
+            ੈ✩‧₊˚ Add Yours - Student Creations ˚₊‧✩ੈ
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-            Share your culinary masterpieces! Upload photos of your creations and inspire fellow students around the world.
+            Share your culinary masterpieces! ✧･ﾟ Upload photos of your creations and inspire fellow students around the world ✧･ﾟ
           </p>
         </div>
 
@@ -107,13 +107,13 @@ export const AddYoursSection = ({ images }: AddYoursSectionProps) => {
           >
             <div className="text-center">
               <Upload className="w-12 h-12 mx-auto mb-4 text-primary" />
-              <h3 className="text-lg font-semibold mb-2 text-foreground">Upload Your Own!</h3>
+              <h3 className="text-lg font-semibold mb-2 text-foreground">✧･ﾟ: Upload Your Own! :･ﾟ✧</h3>
               <p className="text-muted-foreground mb-4">
                 Drag & drop your images here, or click to browse
               </p>
               <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
                 <Camera className="w-4 h-4 mr-2" />
-                Choose Photos
+                ੈ✩‧₊˚ Choose Photos ˚₊‧✩ੈ
               </Button>
               <p className="text-sm text-muted-foreground mt-2">
                 Supports camera roll, computer files, and drag & drop
@@ -133,7 +133,7 @@ export const AddYoursSection = ({ images }: AddYoursSectionProps) => {
 
         {/* Inspirational Message */}
         <div className="text-center">
-          <h3 className="text-2xl font-semibold mb-4 text-foreground">Get Inspired</h3>
+          <h3 className="text-2xl font-semibold mb-4 text-foreground">＊*•̩̩͙✩•̩̩͙*˚ Get Inspired ˚*•̩̩͙✩•̩̩͙*˚＊</h3>
           <p className="text-muted-foreground max-w-3xl mx-auto">
             Every dish tells a story of <strong>comfort, creativity, and connection</strong> {"<3"} These aren't just meals - 
             they're <strong>moments of joy</strong> shared across dorm rooms and late-night cooking adventures! 
