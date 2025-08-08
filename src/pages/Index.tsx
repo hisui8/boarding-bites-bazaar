@@ -330,7 +330,7 @@ const Index = () => {
         <div id="recipe-sections" className="py-16">
           <div className="text-center mb-12">
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
-              ⋆ Recipe Collections ⋆
+              ＊*•̩̩͙✩•̩̩͙*˚　Recipe Collections　˚*•̩̩͙✩•̩̩͙*˚＊
             </h2>
             <p className="text-muted-foreground max-w-3xl mx-auto text-center leading-relaxed">
               From quick midnight snacks to comfort food that reminds you of home, 
@@ -446,7 +446,7 @@ const Index = () => {
         {/* Submit Recipe Section */}
         <div id="submit-recipe" className="py-16">
           <div className="bg-card rounded-lg p-8 shadow-[var(--shadow-card)] text-center">
-            <h3 className="font-heading text-2xl font-bold text-foreground mb-3">⋆ Share Your Recipe ⋆</h3>
+            <h3 className="font-heading text-2xl font-bold text-foreground mb-3">✧･ﾟ: Share Your Recipe :･ﾟ✧</h3>
             <p className="text-muted-foreground mb-6 max-w-3xl mx-auto text-center leading-relaxed">
               Have a go-to recipe that's gotten you through late-night study sessions or homesick moments? 
               Share it with fellow students and help build our community cookbook 𐙚⋆.˚
@@ -462,7 +462,7 @@ const Index = () => {
                 className="inline-flex items-center"
               >
                 <ExternalLink className="w-4 h-4 mr-2" />
-                ੈ✩‧₊˚ Submit Your Recipe ˚₊‧✩ੈ
+                ✧･ﾟ: Submit Your Recipe :･ﾟ✧
               </a>
             </Button>
           </div>
