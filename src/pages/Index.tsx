@@ -290,35 +290,45 @@ const Index = () => {
               onClick={() => scrollToSection('mains')}
               className="flex flex-col items-center gap-2 p-4 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors group"
             >
-              <ChefHat className="w-8 h-8 text-primary-foreground group-hover:scale-110 transition-transform" />
+              <div className="drop-shadow-lg bg-white/20 rounded-full p-2 backdrop-blur-sm border border-white/30">
+                <ChefHat className="w-8 h-8 text-primary-foreground group-hover:scale-110 transition-transform" />
+              </div>
               <span className="text-sm font-medium text-primary-foreground text-center">Dorm-Friendly Mains</span>
             </button>
             <button
               onClick={() => scrollToSection('snacks')}
               className="flex flex-col items-center gap-2 p-4 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors group"
             >
-              <Coffee className="w-8 h-8 text-primary-foreground group-hover:scale-110 transition-transform" />
+              <div className="drop-shadow-lg bg-white/20 rounded-full p-2 backdrop-blur-sm border border-white/30">
+                <Coffee className="w-8 h-8 text-primary-foreground group-hover:scale-110 transition-transform" />
+              </div>
               <span className="text-sm font-medium text-primary-foreground text-center">Savory Snacks & Sides</span>
             </button>
             <button
               onClick={() => scrollToSection('sweets')}
               className="flex flex-col items-center gap-2 p-4 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors group"
             >
-              <Cookie className="w-8 h-8 text-primary-foreground group-hover:scale-110 transition-transform" />
+              <div className="drop-shadow-lg bg-white/20 rounded-full p-2 backdrop-blur-sm border border-white/30">
+                <Cookie className="w-8 h-8 text-primary-foreground group-hover:scale-110 transition-transform" />
+              </div>
               <span className="text-sm font-medium text-primary-foreground text-center">Sweet Treats</span>
             </button>
             <button
               onClick={() => scrollToSection('healthy')}
               className="flex flex-col items-center gap-2 p-4 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors group"
             >
-              <Apple className="w-8 h-8 text-primary-foreground group-hover:scale-110 transition-transform" />
+              <div className="drop-shadow-lg bg-white/20 rounded-full p-2 backdrop-blur-sm border border-white/30">
+                <Apple className="w-8 h-8 text-primary-foreground group-hover:scale-110 transition-transform" />
+              </div>
               <span className="text-sm font-medium text-primary-foreground text-center">Light & Healthy</span>
             </button>
             <button
               onClick={() => scrollToSection('quick')}
               className="flex flex-col items-center gap-2 p-4 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors group"
             >
-              <Zap className="w-8 h-8 text-primary-foreground group-hover:scale-110 transition-transform" />
+              <div className="drop-shadow-lg bg-white/20 rounded-full p-2 backdrop-blur-sm border border-white/30">
+                <Zap className="w-8 h-8 text-primary-foreground group-hover:scale-110 transition-transform" />
+              </div>
               <span className="text-sm font-medium text-primary-foreground text-center">Quick Bites & Hacks</span>
             </button>
           </div>
@@ -326,11 +336,22 @@ const Index = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4">
-        {/* Recipe Sections */}
+        {/* Add Yours Section */}
+        <AddYoursSection images={[
+          "/lovable-uploads/ab62cb69-3e9a-42b6-b739-e32be31fc039.png",
+          "/lovable-uploads/5fcae279-9ff4-4440-9436-075c82058d26.png",
+          "/lovable-uploads/405e0730-6018-4417-b666-de9e5705172b.png",
+          "/lovable-uploads/4ab7f9a7-5c7b-4a22-a386-1188af33aafb.png",
+          "/lovable-uploads/97c400d4-385c-4647-a4f8-a3994101030d.png",
+          "/lovable-uploads/518571a9-9c35-444f-a121-5a5c7ed12d42.png",
+          "/lovable-uploads/de0a47be-ac27-4c82-8e81-7de9abe96d7d.png",
+          "/lovable-uploads/2a085e41-428c-496e-bbd0-1949c5858ad9.png"
+        ]} />
+
         <div id="recipe-sections" className="py-16">
           <div className="text-center mb-12">
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
-              ＊*•̩̩͙✩•̩̩͙*˚　Recipe Collections　˚*•̩̩͙✩•̩̩͙*˚＊
+              *•̩̩͙✩•̩̩͙* Recipe Collections *•̩̩͙✩•̩̩͙*
             </h2>
             <p className="text-muted-foreground max-w-3xl mx-auto text-center leading-relaxed">
               From quick midnight snacks to comfort food that reminds you of home, 
@@ -398,8 +419,6 @@ const Index = () => {
             </div>
           </RecipeSection>
 
-
-
           {/* Light & Healthy */}
           <RecipeSection
             id="healthy"
@@ -439,9 +458,7 @@ const Index = () => {
               ))}
             </div>
           </RecipeSection>
-
         </div>
-
 
         {/* Submit Recipe Section */}
         <div id="submit-recipe" className="py-16">
@@ -467,26 +484,14 @@ const Index = () => {
             </Button>
           </div>
         </div>
-
-        {/* Add Yours Section */}
-        <AddYoursSection images={[
-          "/lovable-uploads/ab62cb69-3e9a-42b6-b739-e32be31fc039.png",
-          "/lovable-uploads/5fcae279-9ff4-4440-9436-075c82058d26.png",
-          "/lovable-uploads/405e0730-6018-4417-b666-de9e5705172b.png",
-          "/lovable-uploads/4ab7f9a7-5c7b-4a22-a386-1188af33aafb.png",
-          "/lovable-uploads/97c400d4-385c-4647-a4f8-a3994101030d.png",
-          "/lovable-uploads/518571a9-9c35-444f-a121-5a5c7ed12d42.png",
-          "/lovable-uploads/de0a47be-ac27-4c82-8e81-7de9abe96d7d.png",
-          "/lovable-uploads/2a085e41-428c-496e-bbd0-1949c5858ad9.png"
-        ]} />
-
-        {/* Recipe Modal */}
-        <RecipeModal 
-          recipe={selectedRecipe}
-          isOpen={isModalOpen}
-          onClose={closeModal}
-        />
       </div>
+
+      {/* Recipe Modal */}
+      <RecipeModal
+        recipe={selectedRecipe}
+        isOpen={isModalOpen}
+        onClose={closeModal}
+      />
 
       {/* Footer */}
       <footer className="bg-muted/50 py-8 mt-16">

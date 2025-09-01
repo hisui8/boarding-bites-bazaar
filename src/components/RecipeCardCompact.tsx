@@ -20,7 +20,7 @@ export const RecipeCardCompact = ({
         key={index}
         className={`w-4 h-4 ${
           index < rating 
-            ? 'fill-amber-400 text-amber-400' 
+            ? 'fill-[hsl(14_50%_58%)] text-[hsl(14_50%_58%)]' 
             : 'text-muted-foreground/30'
         }`}
       />
@@ -40,8 +40,11 @@ export const RecipeCardCompact = ({
         by {author || "anon"}
       </p>
       
-      <div className="flex items-center gap-1">
-        {renderStars(difficulty)}
+      <div className="flex items-center gap-2">
+        <span className="text-sm font-medium text-muted-foreground">Difficulty:</span>
+        <div className="flex items-center gap-1">
+          {renderStars(difficulty)}
+        </div>
       </div>
     </div>
   );
