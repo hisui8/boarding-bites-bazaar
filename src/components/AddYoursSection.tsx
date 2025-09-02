@@ -131,15 +131,6 @@ export const AddYoursSection = ({ images }: AddYoursSectionProps) => {
           </div>
         </div>
 
-        {/* Inspirational Message */}
-        <div className="text-center">
-          <h3 className="text-2xl font-semibold mb-4 text-foreground">*•̩̩͙✩•̩̩͙* Get Inspired *•̩̩͙✩•̩̩͙*</h3>
-          <p className="text-muted-foreground max-w-4xl mx-auto text-center leading-relaxed">
-            Every dish tells a story of <strong>comfort, creativity, and connection</strong> {"<3"} These aren't just meals - 
-            they're <strong>moments of joy</strong> shared across dorm rooms and late-night cooking adventures! 
-            Your kitchen creations remind us that <strong>home isn't a place, it's a feeling</strong> we create together 𐙚⋆.˚
-          </p>
-        </div>
       </div>
     </section>
   );
