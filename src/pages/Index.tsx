@@ -336,6 +336,16 @@ const Index = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4">
+        {/* Get Inspired Section */}
+        <div className="py-16">
+          <div className="bg-card rounded-lg p-8 shadow-[var(--shadow-card)] text-center">
+            <h3 className="font-heading text-2xl font-bold text-foreground mb-3">*•̩̩͙✩•̩̩͙* Get Inspired *•̩̩͙✩•̩̩͙*</h3>
+            <p className="text-muted-foreground mb-6 max-w-3xl mx-auto text-center leading-relaxed">
+              Every dish tells a story of comfort, creativity, and connection &lt;3 These aren't just meals - they're moments of joy shared across dorm rooms and late-night cooking adventures! Your kitchen creations remind us that home isn't a place, it's a feeling we create together 𐙚⋆.˚
+            </p>
+          </div>
+        </div>
+
         {/* Add Yours Section */}
         <AddYoursSection images={[
           "/lovable-uploads/ab62cb69-3e9a-42b6-b739-e32be31fc039.png",
