@@ -337,27 +337,12 @@ const Index = () => {
 
       <div className="max-w-7xl mx-auto px-4">
         {/* Get Inspired Section */}
-        <div id="submit-recipe" className="py-16">
+        <div className="py-16">
           <div className="bg-card rounded-lg p-8 shadow-[var(--shadow-card)] text-center">
             <h3 className="font-heading text-2xl font-bold text-foreground mb-3">*•̩̩͙✩•̩̩͙* Get Inspired *•̩̩͙✩•̩̩͙*</h3>
             <p className="text-muted-foreground mb-6 max-w-3xl mx-auto text-center leading-relaxed">
-              Have a go-to recipe that's gotten you through late-night study sessions or homesick moments? 
-              Share it with fellow students and help build our community cookbook 𐙚⋆.˚
+              Every dish tells a story of comfort, creativity, and connection &lt;3 These aren't just meals - they're moments of joy shared across dorm rooms and late-night cooking adventures! Your kitchen creations remind us that home isn't a place, it's a feeling we create together 𐙚⋆.˚
             </p>
-            <Button 
-              asChild
-              className="bg-primary text-primary-foreground hover:bg-primary/90"
-            >
-              <a 
-                href="https://forms.gle/zBjMQ477TwoaZuL78" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center"
-              >
-                <ExternalLink className="w-4 h-4 mr-2" />
-                ✧･ﾟ: Submit Your Recipe :･ﾟ✧
-              </a>
-            </Button>
           </div>
         </div>
 
