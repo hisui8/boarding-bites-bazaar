@@ -59,8 +59,11 @@ export const RecipeModal = ({ recipe, isOpen, onClose }: RecipeModalProps) => {
                 </div>
               )}
             </div>
-            <div className="flex items-center gap-1">
-              {renderStars(recipe.difficulty)}
+            <div className="flex items-center gap-2">
+              <span className="text-sm font-medium text-foreground">Difficulty:</span>
+              <div className="flex items-center gap-1">
+                {renderStars(recipe.difficulty)}
+              </div>
             </div>
           </div>
           <Button variant="ghost" size="sm" onClick={onClose}>
