@@ -74,19 +74,13 @@ export const AddYoursSection = ({ images }: AddYoursSectionProps) => {
         {/* Image Gallery */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {allImages.map((image, index) => (
-            <Card key={index} className="overflow-hidden group hover:shadow-lg transition-all duration-300">
-              <div className="relative aspect-square">
+            <Card key={index} className="overflow-hidden">
+              <div className="aspect-square">
                 <img
                   src={image}
                   alt={`Student creation ${index + 1}`}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
-                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex gap-2">
-                    <Heart className="w-6 h-6 text-white" />
-                    <Star className="w-6 h-6 text-white" />
-                  </div>
-                </div>
               </div>
             </Card>
           ))}
