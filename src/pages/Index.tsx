@@ -338,7 +338,7 @@ const Index = () => {
 
       <div className="max-w-7xl mx-auto px-4">
         {/* Get Inspired Section */}
-        <div className="py-16">
+        <div className="py-16 bg-secondary/30">
           <div className="bg-card rounded-lg p-8 shadow-[var(--shadow-card)] text-center">
             <h3 className="font-heading text-2xl font-bold text-foreground mb-3">*•̩̩͙✩•̩̩͙* Get Inspired *•̩̩͙✩•̩̩͙*</h3>
             <p className="text-muted-foreground mb-6 max-w-3xl mx-auto text-center leading-relaxed">
@@ -359,7 +359,7 @@ const Index = () => {
           "/lovable-uploads/2a085e41-428c-496e-bbd0-1949c5858ad9.png"
         ]} />
 
-        <div id="recipe-sections" className="py-16">
+        <div id="recipe-sections" className="py-16 bg-muted/20">
           <div className="text-center mb-12">
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
               *•̩̩͙✩•̩̩͙* Recipe Collections *•̩̩͙✩•̩̩͙*
@@ -475,7 +475,7 @@ const Index = () => {
         </div>
 
         {/* Share Your Recipe Section */}
-        <div className="py-16">
+        <div className="py-16 bg-accent/10">
           <div className="bg-card rounded-lg p-8 shadow-[var(--shadow-card)] text-center">
             <h3 className="font-heading text-2xl font-bold text-foreground mb-3">✧･ﾟ: Share Your Recipe :･ﾟ✧</h3>
             <p className="text-muted-foreground mb-6 max-w-3xl mx-auto text-center leading-relaxed">

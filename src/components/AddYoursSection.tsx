@@ -60,7 +60,7 @@ export const AddYoursSection = ({ images }: AddYoursSectionProps) => {
   const allImages = [...images, ...uploadedImages];
 
   return (
-    <section className="py-16 px-4 bg-background">
+    <section className="py-16 px-4 bg-primary/5">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold mb-4 text-foreground">
