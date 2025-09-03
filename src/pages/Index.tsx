@@ -7,6 +7,7 @@ import { AddYoursSection } from "@/components/AddYoursSection";
 import { Button } from "@/components/ui/button";
 
 const Index = () => {
+  console.log("Index component is rendering");
   const [selectedRecipe, setSelectedRecipe] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
