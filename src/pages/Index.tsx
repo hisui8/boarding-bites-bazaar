@@ -368,6 +368,9 @@ const Index = () => {
               From quick midnight snacks to comfort food that reminds you of home, 
               we've got recipes for every mood and moment 𐙚⋆.˚
             </p>
+            <p className="text-sm text-muted-foreground/80 max-w-3xl mx-auto text-center leading-relaxed mt-4 font-medium">
+              ⚠️ Please note: These recipes are submitted by fellow students and may not include detailed measurements or amounts. Take them as creative inspiration and adjust to taste! ✨
+            </p>
           </div>
 
           {/* Dorm-Friendly Mains */}
