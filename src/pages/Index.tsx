@@ -374,104 +374,114 @@ const Index = () => {
           </div>
 
           {/* Dorm-Friendly Mains */}
-          <RecipeSection
-            id="mains"
-            title="Dorm-Friendly Mains"
-            description="Hearty meals you can make with minimal equipment that will actually fill you up and keep you going."
-            icon={<ChefHat className="w-16 h-16" />}
-          >
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
-              {recipes.mains.map((recipe, index) => (
-                <RecipeCardCompact 
-                  key={index} 
-                  title={recipe.title}
-                  author={recipe.author}
-                  difficulty={recipe.difficulty}
-                  onClick={() => handleRecipeClickWithScroll(recipe)}
-                />
-              ))}
-            </div>
-          </RecipeSection>
+          <div className="bg-secondary/20 py-8 -mx-4 px-4 rounded-lg mb-8">
+            <RecipeSection
+              id="mains"
+              title="Dorm-Friendly Mains"
+              description="Hearty meals you can make with minimal equipment that will actually fill you up and keep you going."
+              icon={<ChefHat className="w-16 h-16" />}
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+                {recipes.mains.map((recipe, index) => (
+                  <RecipeCardCompact 
+                    key={index} 
+                    title={recipe.title}
+                    author={recipe.author}
+                    difficulty={recipe.difficulty}
+                    onClick={() => handleRecipeClickWithScroll(recipe)}
+                  />
+                ))}
+              </div>
+            </RecipeSection>
+          </div>
 
           {/* Savory Snacks & Sides */}
-          <RecipeSection
-            id="snacks"
-            title="Savory Snacks & Sides"
-            description="Perfect for study sessions, movie nights, or when you need something satisfying between meals."
-            icon={<Coffee className="w-16 h-16" />}
-          >
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
-              {recipes.snacks.map((recipe, index) => (
-                <RecipeCardCompact 
-                  key={index} 
-                  title={recipe.title}
-                  author={recipe.author}
-                  difficulty={recipe.difficulty}
-                  onClick={() => handleRecipeClickWithScroll(recipe)}
-                />
-              ))}
-            </div>
-          </RecipeSection>
+          <div className="bg-primary/5 py-8 -mx-4 px-4 rounded-lg mb-8">
+            <RecipeSection
+              id="snacks"
+              title="Savory Snacks & Sides"
+              description="Perfect for study sessions, movie nights, or when you need something satisfying between meals."
+              icon={<Coffee className="w-16 h-16" />}
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+                {recipes.snacks.map((recipe, index) => (
+                  <RecipeCardCompact 
+                    key={index} 
+                    title={recipe.title}
+                    author={recipe.author}
+                    difficulty={recipe.difficulty}
+                    onClick={() => handleRecipeClickWithScroll(recipe)}
+                  />
+                ))}
+              </div>
+            </RecipeSection>
+          </div>
 
           {/* Sweet Treats */}
-          <RecipeSection
-            id="sweets"
-            title="Sweet Treats"
-            description="Because sometimes you need a little sugar to get through the day (or night)."
-            icon={<Cookie className="w-16 h-16" />}
-          >
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
-              {recipes.sweets.map((recipe, index) => (
-                <RecipeCardCompact 
-                  key={index} 
-                  title={recipe.title}
-                  author={recipe.author}
-                  difficulty={recipe.difficulty}
-                  onClick={() => handleRecipeClickWithScroll(recipe)}
-                />
-              ))}
-            </div>
-          </RecipeSection>
+          <div className="bg-accent/10 py-8 -mx-4 px-4 rounded-lg mb-8">
+            <RecipeSection
+              id="sweets"
+              title="Sweet Treats"
+              description="Because sometimes you need a little sugar to get through the day (or night)."
+              icon={<Cookie className="w-16 h-16" />}
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+                {recipes.sweets.map((recipe, index) => (
+                  <RecipeCardCompact 
+                    key={index} 
+                    title={recipe.title}
+                    author={recipe.author}
+                    difficulty={recipe.difficulty}
+                    onClick={() => handleRecipeClickWithScroll(recipe)}
+                  />
+                ))}
+              </div>
+            </RecipeSection>
+          </div>
 
           {/* Light & Healthy */}
-          <RecipeSection
-            id="healthy"
-            title="Light & Healthy"
-            description="Nourishing options for when you want to feel good inside and out."
-            icon={<Apple className="w-16 h-16" />}
-          >
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
-              {recipes.healthy.map((recipe, index) => (
-                <RecipeCardCompact 
-                  key={index} 
-                  title={recipe.title}
-                  author={recipe.author}
-                  difficulty={recipe.difficulty}
-                  onClick={() => handleRecipeClickWithScroll(recipe)}
-                />
-              ))}
-            </div>
-          </RecipeSection>
+          <div className="bg-muted/15 py-8 -mx-4 px-4 rounded-lg mb-8">
+            <RecipeSection
+              id="healthy"
+              title="Light & Healthy"
+              description="Nourishing options for when you want to feel good inside and out."
+              icon={<Apple className="w-16 h-16" />}
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+                {recipes.healthy.map((recipe, index) => (
+                  <RecipeCardCompact 
+                    key={index} 
+                    title={recipe.title}
+                    author={recipe.author}
+                    difficulty={recipe.difficulty}
+                    onClick={() => handleRecipeClickWithScroll(recipe)}
+                  />
+                ))}
+              </div>
+            </RecipeSection>
+          </div>
 
           {/* Quick Bites & Hacks */}
-          <RecipeSection
-            id="quick"
-            title="Quick Bites & Hacks"
-            description="Fast solutions for busy schedules and creative ways to upgrade basic ingredients."
-            icon={<Zap className="w-16 h-16" />}
-          >
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
-              {recipes.quick.map((recipe, index) => (
-                <RecipeCardCompact 
-                  key={index} 
-                  title={recipe.title}
-                  author={recipe.author}
-                  difficulty={recipe.difficulty}
-                  onClick={() => handleRecipeClickWithScroll(recipe)}
-                />
-              ))}
-            </div>
-          </RecipeSection>
+          <div className="bg-destructive/5 py-8 -mx-4 px-4 rounded-lg">
+            <RecipeSection
+              id="quick"
+              title="Quick Bites & Hacks"
+              description="Fast solutions for busy schedules and creative ways to upgrade basic ingredients."
+              icon={<Zap className="w-16 h-16" />}
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+                {recipes.quick.map((recipe, index) => (
+                  <RecipeCardCompact 
+                    key={index} 
+                    title={recipe.title}
+                    author={recipe.author}
+                    difficulty={recipe.difficulty}
+                    onClick={() => handleRecipeClickWithScroll(recipe)}
+                  />
+                ))}
+              </div>
+            </RecipeSection>
+          </div>
         </div>
 
         {/* Share Your Recipe Section */}
