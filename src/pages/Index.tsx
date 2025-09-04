@@ -286,52 +286,61 @@ const Index = () => {
       {/* Category Navigation */}
       <div className="bg-primary py-8 px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-            <button
-              onClick={() => scrollToSection('mains')}
-              className="flex flex-col items-center gap-2 p-4 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors group"
-            >
-              <div className="drop-shadow-lg bg-white/20 rounded-full p-2 backdrop-blur-sm border border-white/30">
-                <ChefHat className="w-8 h-8 text-primary-foreground group-hover:scale-110 transition-transform" />
+          <div className="flex flex-col gap-4">
+            {/* First row - 3 buttons */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 justify-items-center">
+              <button
+                onClick={() => scrollToSection('mains')}
+                className="flex flex-col items-center gap-2 p-4 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors group"
+              >
+                <div className="drop-shadow-lg bg-white/20 rounded-full p-2 backdrop-blur-sm border border-white/30">
+                  <ChefHat className="w-8 h-8 text-primary-foreground group-hover:scale-110 transition-transform" />
+                </div>
+                <span className="text-sm font-medium text-primary-foreground text-center">Dorm-Friendly Mains</span>
+              </button>
+              <button
+                onClick={() => scrollToSection('snacks')}
+                className="flex flex-col items-center gap-2 p-4 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors group"
+              >
+                <div className="drop-shadow-lg bg-white/20 rounded-full p-2 backdrop-blur-sm border border-white/30">
+                  <Coffee className="w-8 h-8 text-primary-foreground group-hover:scale-110 transition-transform" />
+                </div>
+                <span className="text-sm font-medium text-primary-foreground text-center">Savory Snacks & Sides</span>
+              </button>
+              <button
+                onClick={() => scrollToSection('sweets')}
+                className="flex flex-col items-center gap-2 p-4 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors group"
+              >
+                <div className="drop-shadow-lg bg-white/20 rounded-full p-2 backdrop-blur-sm border border-white/30">
+                  <Cookie className="w-8 h-8 text-primary-foreground group-hover:scale-110 transition-transform" />
+                </div>
+                <span className="text-sm font-medium text-primary-foreground text-center">Sweet Treats</span>
+              </button>
+            </div>
+            
+            {/* Second row - 2 centered buttons */}
+            <div className="flex justify-center">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 justify-items-center">
+                <button
+                  onClick={() => scrollToSection('healthy')}
+                  className="flex flex-col items-center gap-2 p-4 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors group"
+                >
+                  <div className="drop-shadow-lg bg-white/20 rounded-full p-2 backdrop-blur-sm border border-white/30">
+                    <Apple className="w-8 h-8 text-primary-foreground group-hover:scale-110 transition-transform" />
+                  </div>
+                  <span className="text-sm font-medium text-primary-foreground text-center">Light & Healthy</span>
+                </button>
+                <button
+                  onClick={() => scrollToSection('quick')}
+                  className="flex flex-col items-center gap-2 p-4 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors group"
+                >
+                  <div className="drop-shadow-lg bg-white/20 rounded-full p-2 backdrop-blur-sm border border-white/30">
+                    <Zap className="w-8 h-8 text-primary-foreground group-hover:scale-110 transition-transform" />
+                  </div>
+                  <span className="text-sm font-medium text-primary-foreground text-center">Quick Bites & Hacks</span>
+                </button>
               </div>
-              <span className="text-sm font-medium text-primary-foreground text-center">Dorm-Friendly Mains</span>
-            </button>
-            <button
-              onClick={() => scrollToSection('snacks')}
-              className="flex flex-col items-center gap-2 p-4 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors group"
-            >
-              <div className="drop-shadow-lg bg-white/20 rounded-full p-2 backdrop-blur-sm border border-white/30">
-                <Coffee className="w-8 h-8 text-primary-foreground group-hover:scale-110 transition-transform" />
-              </div>
-              <span className="text-sm font-medium text-primary-foreground text-center">Savory Snacks & Sides</span>
-            </button>
-            <button
-              onClick={() => scrollToSection('sweets')}
-              className="flex flex-col items-center gap-2 p-4 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors group"
-            >
-              <div className="drop-shadow-lg bg-white/20 rounded-full p-2 backdrop-blur-sm border border-white/30">
-                <Cookie className="w-8 h-8 text-primary-foreground group-hover:scale-110 transition-transform" />
-              </div>
-              <span className="text-sm font-medium text-primary-foreground text-center">Sweet Treats</span>
-            </button>
-            <button
-              onClick={() => scrollToSection('healthy')}
-              className="flex flex-col items-center gap-2 p-4 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors group"
-            >
-              <div className="drop-shadow-lg bg-white/20 rounded-full p-2 backdrop-blur-sm border border-white/30">
-                <Apple className="w-8 h-8 text-primary-foreground group-hover:scale-110 transition-transform" />
-              </div>
-              <span className="text-sm font-medium text-primary-foreground text-center">Light & Healthy</span>
-            </button>
-            <button
-              onClick={() => scrollToSection('quick')}
-              className="flex flex-col items-center gap-2 p-4 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors group"
-            >
-              <div className="drop-shadow-lg bg-white/20 rounded-full p-2 backdrop-blur-sm border border-white/30">
-                <Zap className="w-8 h-8 text-primary-foreground group-hover:scale-110 transition-transform" />
-              </div>
-              <span className="text-sm font-medium text-primary-foreground text-center">Quick Bites & Hacks</span>
-            </button>
+            </div>
           </div>
         </div>
       </div>
