@@ -286,7 +286,7 @@ const Index = () => {
       {/* Category Navigation */}
       <div className="bg-primary py-8 px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 [&>*:nth-child(4)]:lg:col-start-2 [&>*:nth-child(5)]:lg:col-start-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             <button
               onClick={() => scrollToSection('mains')}
               className="flex flex-col items-center gap-2 p-4 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors group"
