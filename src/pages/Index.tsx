@@ -374,7 +374,7 @@ const Index = () => {
           </div>
 
           {/* Dorm-Friendly Mains */}
-          <div className="bg-secondary/20 py-8 -mx-4 px-4 rounded-lg mb-8">
+          <div className="bg-secondary/20 -mx-4 px-4">
             <RecipeSection
               id="mains"
               title="Dorm-Friendly Mains"
@@ -396,7 +396,7 @@ const Index = () => {
           </div>
 
           {/* Savory Snacks & Sides */}
-          <div className="bg-primary/5 py-8 -mx-4 px-4 rounded-lg mb-8">
+          <div className="bg-primary/5 -mx-4 px-4">
             <RecipeSection
               id="snacks"
               title="Savory Snacks & Sides"
@@ -418,7 +418,7 @@ const Index = () => {
           </div>
 
           {/* Sweet Treats */}
-          <div className="bg-accent/10 py-8 -mx-4 px-4 rounded-lg mb-8">
+          <div className="bg-accent/10 -mx-4 px-4">
             <RecipeSection
               id="sweets"
               title="Sweet Treats"
@@ -440,7 +440,7 @@ const Index = () => {
           </div>
 
           {/* Light & Healthy */}
-          <div className="bg-muted/15 py-8 -mx-4 px-4 rounded-lg mb-8">
+          <div className="bg-muted/15 -mx-4 px-4">
             <RecipeSection
               id="healthy"
               title="Light & Healthy"
@@ -462,7 +462,7 @@ const Index = () => {
           </div>
 
           {/* Quick Bites & Hacks */}
-          <div className="bg-destructive/5 py-8 -mx-4 px-4 rounded-lg">
+          <div className="bg-destructive/5 -mx-4 px-4">
             <RecipeSection
               id="quick"
               title="Quick Bites & Hacks"
