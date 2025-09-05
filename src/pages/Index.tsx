@@ -337,7 +337,7 @@ const Index = () => {
       </div>
 
       {/* Get Inspired Section */}
-      <div className="py-16 bg-secondary/30 rounded-2xl mx-4 mb-8">
+      <div className="py-16 bg-secondary/30 rounded-t-2xl mx-4">
         <div className="max-w-7xl mx-auto px-4">
           <div className="bg-card rounded-lg p-8 shadow-[var(--shadow-card)] text-center">
             <h3 className="font-heading text-2xl font-bold text-foreground mb-3">*•̩̩͙✩•̩̩͙* Get Inspired *•̩̩͙✩•̩̩͙*</h3>
@@ -349,7 +349,7 @@ const Index = () => {
       </div>
 
       {/* Add Yours Section */}
-      <div className="mx-4 mb-8">
+      <div className="mx-4">
         <AddYoursSection images={[
           "/lovable-uploads/ab62cb69-3e9a-42b6-b739-e32be31fc039.png",
           "/lovable-uploads/5fcae279-9ff4-4440-9436-075c82058d26.png",
@@ -362,7 +362,7 @@ const Index = () => {
         ]} />
       </div>
 
-      <div id="recipe-sections" className="py-16 bg-muted/20 rounded-2xl mx-4 mb-8">
+      <div id="recipe-sections" className="py-16 bg-muted/20 mx-4">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -385,7 +385,7 @@ const Index = () => {
         title="Dorm-Friendly Mains"
         description="Hearty meals you can make with minimal equipment that will actually fill you up and keep you going."
         icon={<ChefHat className="w-16 h-16" />}
-        bgClass="bg-secondary/20 rounded-2xl mx-4 mb-8"
+        bgClass="bg-secondary/20 mx-4"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
           {recipes.mains.map((recipe, index) => (
@@ -406,7 +406,7 @@ const Index = () => {
         title="Savory Snacks & Sides"
         description="Perfect for study sessions, movie nights, or when you need something satisfying between meals."
         icon={<Coffee className="w-16 h-16" />}
-        bgClass="bg-primary/5 rounded-2xl mx-4 mb-8"
+        bgClass="bg-primary/5 mx-4"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
           {recipes.snacks.map((recipe, index) => (
@@ -427,7 +427,7 @@ const Index = () => {
         title="Sweet Treats"
         description="Because sometimes you need a little sugar to get through the day (or night)."
         icon={<Cookie className="w-16 h-16" />}
-        bgClass="bg-accent/10 rounded-2xl mx-4 mb-8"
+        bgClass="bg-accent/10 mx-4"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
           {recipes.sweets.map((recipe, index) => (
@@ -448,7 +448,7 @@ const Index = () => {
         title="Light & Healthy"
         description="Nourishing options for when you want to feel good inside and out."
         icon={<Apple className="w-16 h-16" />}
-        bgClass="bg-muted/15 rounded-2xl mx-4 mb-8"
+        bgClass="bg-muted/15 mx-4"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
           {recipes.healthy.map((recipe, index) => (
@@ -469,7 +469,7 @@ const Index = () => {
         title="Quick Bites & Hacks"
         description="Fast solutions for busy schedules and creative ways to upgrade basic ingredients."
         icon={<Zap className="w-16 h-16" />}
-        bgClass="bg-destructive/5 rounded-2xl mx-4 mb-8"
+        bgClass="bg-destructive/5 mx-4"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
           {recipes.quick.map((recipe, index) => (
@@ -485,7 +485,7 @@ const Index = () => {
       </RecipeSection>
 
       {/* Share Your Recipe Section */}
-      <div className="py-16 bg-accent/10 rounded-2xl mx-4 mb-8">
+      <div className="py-16 bg-accent/10 rounded-b-2xl mx-4">
         <div className="max-w-7xl mx-auto px-4">
           <div className="bg-card rounded-lg p-8 shadow-[var(--shadow-card)] text-center">
             <h3 className="font-heading text-2xl font-bold text-foreground mb-3">✧･ﾟ: Share Your Recipe :･ﾟ✧</h3>
