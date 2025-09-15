@@ -178,15 +178,6 @@ const Index = () => {
     ],
     sweets: [
       {
-        title: "MANGO MOCHI??? Matcha tiramisu, red velvet brownies/cookies omg, LAVA CAKE, fruit /lemon tartsssss, ive been tjinking abt banana bread lately 🤩🤩",
-        author: "Josephine",
-        location: "Hk",
-        difficulty: 3,
-        ingredients: ["Oh dear"],
-        instructions: ["Uh oh"],
-        chefsComments: "I just love food man"
-      },
-      {
         title: "Oreo Mug Cake",
         author: "Chloe Kim",
         location: "Wherever that makes me feel comfortable and welcomed",
