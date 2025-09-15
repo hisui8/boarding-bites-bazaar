@@ -45,7 +45,7 @@ const Index = () => {
         difficulty: 2,
         ingredients: ["LOTS of garlic cloves", "1 shallot", "1 small chilli", "igloo seasoning", "salt", "pepper", "garlic/onion seasoning", "olive oil", "pasta of choice", "optional: mushrooms"],
         instructions: ["chop garlic into round slightly thick slices", "dice shallots", "chop chillies however you like", "(optional: chop mushrooms)", "boil water", "put pasta in water when starts to bubble/boil", "in a frying pan/saucepan, pour a good amount of olive oil and on low med heat pour in the garlic", "once it starts cooking add the onions and if needed for more oil you can add some", "add salt and pepper", "(opt: if u add mushrooms add in now)", "fry until golden and soft and then add chilli", "Once everything is soft and cooked add all of your seasoning", "drain your pasta fully cooked and mix with your garlic onion mixture", "feel free to top with Parmesan or cheese of choice but it is yummy as is as well! :) enjoy!"],
-        chefsComments: "no not really my grandpa made it and I find it super comforting - it's just super yum and good for you because of the amount of garlic - comfort and happiness as it is a simple but very nice almost a little fancy looking dish. Hopefully you like this dish and good luck with boarding school cookbook <3"
+        chefsComments: "Super comforting dish that's yummy and good for you because of the amount of garlic. Simple but looks a little fancy!"
       },
       {
         title: "Truffle Gnocchi",
@@ -54,7 +54,7 @@ const Index = () => {
         difficulty: 4,
         ingredients: ["Potato's", "truffles", "Parmesan", "White Wine", "black truffle butter", "mushrooms", "heavy cream", "garlic", "flour", "salt"],
         instructions: ["make mashed potatoes", "mix with flour", "make into gnocchi shape", "heat pan", "cook mushrooms with garlic", "add white wine to pan", "add heavy cream to pan", "add gnocchi", "plate with shredded truffles and truffle butter"],
-        chefsComments: "Recommended to my by my father, liked it - I always liked the taste of truffle - aroma and something unique to Italian cuisine. Best of luck on the project I assume you're doing! The Sim family says hi!"
+        chefsComments: "Recommended by my father - I love the taste of truffle and its unique aroma in Italian cuisine."
       },
       {
         title: "Japanese curry",
@@ -63,7 +63,7 @@ const Index = () => {
         difficulty: 3,
         ingredients: ["Japanese curry packet (golden curry)", "potatoes", "Carrots", "Onion", "Beef/chicken", "Rice"],
         instructions: ["Choose whatever protein you want or none at all. If your protein is beef, pork, chicken, or lamb, cut it into large bite (or two bite) sized pieces. Cut a medium to large onion into a medium dice.", "Saute your onions in some butter or vegetable oil. When the onions are translucent, add the terrestrial protein (but not fish or tofu yet - save those for later).", "When the protein is starting to brown, add about two cups of water. Cover and bring to a boil, then reduce to a simmer. Let simmer for about 10 minutes.", "Add the curry bricks and stir to dissolve. If you're making a fish or tofu curry, add that after the bricks are completely incorporated. Bring back to a simmer. Serve with/over rice or udon."],
-        chefsComments: "I just make it with my friends often; very comforting dish and can take away your worries from terrible schoolwork. Yayyy this is great project Hisu 😁"
+        chefsComments: "I make this with my friends often - it's a very comforting dish that helps take your mind off stressful schoolwork."
       },
       {
         title: "Quesadillas",
@@ -128,7 +128,7 @@ const Index = () => {
         difficulty: 1,
         ingredients: ["예찬원 바삭군 시즈닝 먹태 청양마요맛, 30g, 2개 (or other flavors from 쿠팡)", "sorry i don't have good 추천 recipes 🥲🥲 this is the best i got hahah"],
         instructions: ["open the packet and eat it hehe"],
-        chefsComments: "i didn't know that 황태 was packed with protein. apparently it's like 80 percent protein but yeah after i discovered this fact, it became my go to snack hi hisusususupernova 💛💛"
+        chefsComments: "I didn't know that 황태 was packed with protein - apparently it's like 80 percent protein! After discovering this fact, it became my go-to snack."
       },
       {
         title: "tunacado spring rolls",
@@ -146,7 +146,7 @@ const Index = () => {
         difficulty: 1,
         ingredients: ["Microwaveable sticky rice", "soy sauce", "seaweed"],
         instructions: ["Microwave rice", "put soy sauce on rice", "grab rice with seaweed and enjoyyy"],
-        chefsComments: "I lived in Korea and would always eat this as a snack I hope readers experience joy and happiness cuz this dish is fire Love you Hisu miss you very much"
+        chefsComments: "I lived in Korea and would always eat this as a snack. I hope readers experience joy and happiness because this dish is amazing!"
       },
       {
         title: "Buffalo chicken dip",
