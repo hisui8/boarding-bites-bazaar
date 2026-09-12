@@ -1,10 +1,12 @@
 import { useState } from "react";
-import { ChefHat, Coffee, Cookie, Soup, Apple, Zap, Heart, BookOpen, ExternalLink } from "lucide-react";
+import { ChefHat, Coffee, Cookie, Apple, Zap, Heart, ExternalLink } from "lucide-react";
 import { RecipeCardCompact } from "@/components/RecipeCardCompact";
 import { RecipeModal } from "@/components/RecipeModal";
 import { RecipeSection } from "@/components/RecipeSection";
 import { AddYoursSection } from "@/components/AddYoursSection";
 import { Button } from "@/components/ui/button";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/AppSidebar";
 
 const Index = () => {
   console.log("Index component is rendering");
@@ -252,26 +254,30 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <header className="gradient-warm py-16 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="flex justify-center mb-6">
-            <div className="bg-background/20 p-4 rounded-full">
-              <ChefHat className="w-12 h-12 text-primary-foreground" />
+    <SidebarProvider>
+      <div className="min-h-screen bg-background flex w-full">
+        <AppSidebar />
+        <div className="flex-1 flex flex-col min-w-0">
+          {/* Hero Section */}
+          <header className="gradient-warm py-16 px-4 relative">
+            <SidebarTrigger className="absolute top-4 left-4 text-primary-foreground hover:bg-primary-foreground/20 z-10" />
+            <div className="max-w-4xl mx-auto text-center">
+              <div className="flex justify-center mb-6">
+                <div className="bg-background/20 p-4 rounded-full">
+                  <ChefHat className="w-12 h-12 text-primary-foreground" />
+                </div>
+              </div>
+              <h1 className="font-heading text-4xl md:text-6xl font-bold text-white mb-6 hero-title">
+                ⋆ The Ultimate Boarding School Cookbook ⋆
+              </h1>
+              <p className="text-lg md:text-xl text-white max-w-4xl mx-auto leading-relaxed hero-description text-center">
+                Food has this magical way of bringing people together, especially when you're far from home.<br/>
+                Whether you're dealing with homesickness, celebrating a small victory, or just trying to make
+                your dorm room feel a little more like home, these student-tested recipes are here to help
+                you build community, one meal at a time 𐙚⋆.˚
+              </p>
             </div>
-          </div>
-          <h1 className="font-heading text-4xl md:text-6xl font-bold text-white mb-6 hero-title">
-            ⋆ The Ultimate Boarding School Cookbook ⋆
-          </h1>
-          <p className="text-lg md:text-xl text-white max-w-4xl mx-auto leading-relaxed hero-description text-center">
-            Food has this magical way of bringing people together, especially when you're far from home.<br/>
-            Whether you're dealing with homesickness, celebrating a small victory, or just trying to make 
-            your dorm room feel a little more like home, these student-tested recipes are here to help 
-            you build community, one meal at a time 𐙚⋆.˚
-          </p>
-        </div>
-      </header>
+          </header>
 
 
       {/* Category Navigation */}
@@ -521,7 +527,9 @@ const Index = () => {
           </p>
         </div>
       </footer>
-    </div>
+        </div>
+      </div>
+    </SidebarProvider>
   );
 };
 
