@@ -1,31 +1,41 @@
-import { useState } from "react";
-import { ChefHat, Coffee, Cookie, Apple, Zap, Heart, ExternalLink } from "lucide-react";
+import { useState, useEffect } from "react";
+import { ChefHat, Coffee, Cookie, Apple, Zap, Heart, ExternalLink, Home } from "lucide-react";
 import { RecipeCardCompact } from "@/components/RecipeCardCompact";
 import { RecipeModal } from "@/components/RecipeModal";
 import { RecipeSection } from "@/components/RecipeSection";
 import { AddYoursSection } from "@/components/AddYoursSection";
 import { Button } from "@/components/ui/button";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { AppSidebar } from "@/components/AppSidebar";
+
+type PageId = "home" | "mains" | "snacks" | "sweets" | "healthy" | "quick";
+
+const pages: { id: PageId; title: string; icon: typeof ChefHat }[] = [
+  { id: "home", title: "Home", icon: Home },
+  { id: "mains", title: "Dorm-Friendly Mains", icon: ChefHat },
+  { id: "snacks", title: "Savory Snacks & Sides", icon: Coffee },
+  { id: "sweets", title: "Sweet Treats", icon: Cookie },
+  { id: "healthy", title: "Light & Healthy", icon: Apple },
+  { id: "quick", title: "Quick Bites & Hacks", icon: Zap },
+];
 
 const Index = () => {
-  console.log("Index component is rendering");
+  const [activePage, setActivePage] = useState<PageId>("home");
   const [selectedRecipe, setSelectedRecipe] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, [activePage]);
 
   const closeModal = () => {
     setIsModalOpen(false);
     setSelectedRecipe(null);
-    // Re-enable scrolling when modal closes
-    document.body.style.overflow = 'unset';
+    document.body.style.overflow = "unset";
   };
 
   const handleRecipeClickWithScroll = (recipe) => {
     setSelectedRecipe(recipe);
     setIsModalOpen(true);
-    // Disable scrolling when modal opens
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = "hidden";
   };
 
   // All recipes organized by category
@@ -138,7 +148,7 @@ const Index = () => {
         location: "new york",
         difficulty: 2,
         ingredients: ["canned tuna", "lemon", "spicy mayo", "avocado", "rice paper", "water", "soy sauce", "any other veggies"],
-        instructions: ["open your can of tuna and drain it properly", "in a bowl, combine your tuna, juice of 1/2 of a lemon, any seasonings of your choice, 1/2 tbsp of soy sauce and 1 tbsp of spicy mayo", "chop up your avocado and any other veggies you want to add", "in a large enough bowl, add water", "submerge your rice paper in water for 20 or so secs (until its soft) - add in your fillings and wrap", "repeat step five until you have your desired amount (usually makes 4 rolls)", "enjoy with a side of soy sauce"],
+        instructions: ["open your can of tuna and drain it properly", "in a bowl, combine your tuna, juice of 1/2 of a lemon, any seasonings of your choice, 1/2 tbsp of spicy mayo", "chop up your avocado and any other veggies you want to add", "in a large enough bowl, add water", "submerge your rice paper in water for 20 or so secs (until its soft) - add in your fillings and wrap", "repeat step five until you have your desired amount (usually makes 4 rolls)", "enjoy with a side of soy sauce"],
         chefsComments: "i make it at home for lunch bc #proteingains"
       },
       {
@@ -249,29 +259,109 @@ const Index = () => {
     ]
   };
 
-  const scrollToSection = (sectionId: string) => {
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+  const categoryMeta: Record<Exclude<PageId, "home">, { title: string; description: string; icon: JSX.Element; bgClass: string }> = {
+    mains: {
+      title: "Dorm-Friendly Mains",
+      description: "Hearty meals you can make with minimal equipment that will actually fill you up and keep you going.",
+      icon: <ChefHat className="w-16 h-16" />,
+      bgClass: "bg-secondary/20"
+    },
+    snacks: {
+      title: "Savory Snacks & Sides",
+      description: "Perfect for study sessions, movie nights, or when you need something satisfying between meals.",
+      icon: <Coffee className="w-16 h-16" />,
+      bgClass: "bg-primary/5"
+    },
+    sweets: {
+      title: "Sweet Treats",
+      description: "Because sometimes you need a little sugar to get through the day (or night).",
+      icon: <Cookie className="w-16 h-16" />,
+      bgClass: "bg-accent/10"
+    },
+    healthy: {
+      title: "Light & Healthy",
+      description: "Nourishing options for when you want to feel good inside and out.",
+      icon: <Apple className="w-16 h-16" />,
+      bgClass: "bg-muted/15"
+    },
+    quick: {
+      title: "Quick Bites & Hacks",
+      description: "Fast solutions for busy schedules and creative ways to upgrade basic ingredients.",
+      icon: <Zap className="w-16 h-16" />,
+      bgClass: "bg-destructive/5"
+    }
+  };
+
+  const renderCategoryPage = (id: Exclude<PageId, "home">) => {
+    const meta = categoryMeta[id];
+    return (
+      <RecipeSection
+        id={id}
+        title={meta.title}
+        description={meta.description}
+        icon={meta.icon}
+        bgClass={meta.bgClass}
+      >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+          {recipes[id].map((recipe, index) => (
+            <RecipeCardCompact
+              key={index}
+              title={recipe.title}
+              author={recipe.author}
+              difficulty={recipe.difficulty}
+              onClick={() => handleRecipeClickWithScroll(recipe)}
+            />
+          ))}
+        </div>
+      </RecipeSection>
+    );
   };
 
   return (
-    <SidebarProvider>
-      <div className="min-h-screen bg-background flex w-full">
-        <AppSidebar />
-        <div className="flex-1 flex flex-col min-w-0">
+    <div className="min-h-screen bg-background">
+      {/* Sticky Top Menu Bar */}
+      <nav className="sticky top-0 z-40 bg-primary shadow-md">
+        <div className="max-w-6xl mx-auto px-4 pt-3 pb-1">
+          <h1 className="font-heading text-lg md:text-2xl font-bold text-white text-center hero-title">
+            ⋆ The Ultimate Boarding School Cookbook ⋆
+          </h1>
+        </div>
+        <div className="max-w-6xl mx-auto px-2 pb-2">
+          <div className="flex justify-start md:justify-center gap-1 overflow-x-auto">
+            {pages.map((page) => (
+              <button
+                key={page.id}
+                onClick={() => setActivePage(page.id)}
+                className={`flex items-center gap-1.5 px-3 py-2 rounded-full text-xs md:text-sm font-medium whitespace-nowrap transition-colors ${
+                  activePage === page.id
+                    ? "bg-primary-foreground text-primary"
+                    : "text-primary-foreground hover:bg-primary-foreground/20"
+                }`}
+              >
+                <page.icon className="w-4 h-4" />
+                <span>{page.title}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+      </nav>
+
+      {/* Home Page */}
+      {activePage === "home" && (
+        <>
           {/* Hero Section */}
           <header className="gradient-warm py-16 px-4 relative">
-            <SidebarTrigger className="absolute top-4 left-4 text-primary-foreground hover:bg-primary-foreground/20 z-10" />
             <div className="max-w-4xl mx-auto text-center">
               <div className="flex justify-center mb-6">
                 <div className="bg-background/20 p-4 rounded-full">
                   <ChefHat className="w-12 h-12 text-primary-foreground" />
                 </div>
               </div>
-              <h1 className="font-heading text-4xl md:text-6xl font-bold text-white mb-6 hero-title">
-                ⋆ The Ultimate Boarding School Cookbook ⋆
-              </h1>
+              <h2 className="font-heading text-3xl md:text-5xl font-bold text-white mb-6 hero-title">
+                ⋆ Welcome to our kitchen ⋆
+              </h2>
               <p className="text-lg md:text-xl text-white max-w-4xl mx-auto leading-relaxed hero-description text-center">
-                Food has this magical way of bringing people together, especially when you're far from home.<br/>
+                Food has this magical way of bringing people together, especially when you're far from home.<br />
                 Whether you're dealing with homesickness, celebrating a small victory, or just trying to make
                 your dorm room feel a little more like home, these student-tested recipes are here to help
                 you build community, one meal at a time 𐙚⋆.˚
@@ -279,234 +369,79 @@ const Index = () => {
             </div>
           </header>
 
-
-      {/* Category Navigation */}
-      <div className="bg-primary py-8 px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-            <button
-              onClick={() => scrollToSection('mains')}
-              className="flex flex-col items-center gap-2 p-4 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors group"
-            >
-              <div className="drop-shadow-lg bg-white/20 rounded-full p-2 backdrop-blur-sm border border-white/30">
-                <ChefHat className="w-8 h-8 text-primary-foreground group-hover:scale-110 transition-transform" />
+          {/* Get Inspired Section */}
+          <div className="py-16 bg-secondary/30">
+            <div className="max-w-7xl mx-auto px-4">
+              <div className="bg-card rounded-lg p-8 shadow-[var(--shadow-card)] text-center">
+                <h3 className="font-heading text-2xl font-bold text-foreground mb-3">*•̩̩͙✩•̩̩͙* Get Inspired *•̩̩͙✩•̩̩͙*</h3>
+                <p className="text-muted-foreground mb-6 max-w-3xl mx-auto text-center leading-relaxed">
+                  Every dish tells a story of comfort, creativity, and connection &lt;3 These aren't just meals - they're moments of joy shared across dorm rooms and late-night cooking adventures! Your kitchen creations remind us that home isn't a place, it's a feeling we create together 𐙚⋆.˚
+                </p>
               </div>
-              <span className="text-sm font-medium text-primary-foreground text-center">Dorm-Friendly Mains</span>
-            </button>
-            <button
-              onClick={() => scrollToSection('snacks')}
-              className="flex flex-col items-center gap-2 p-4 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors group"
-            >
-              <div className="drop-shadow-lg bg-white/20 rounded-full p-2 backdrop-blur-sm border border-white/30">
-                <Coffee className="w-8 h-8 text-primary-foreground group-hover:scale-110 transition-transform" />
-              </div>
-              <span className="text-sm font-medium text-primary-foreground text-center">Savory Snacks & Sides</span>
-            </button>
-            <button
-              onClick={() => scrollToSection('sweets')}
-              className="flex flex-col items-center gap-2 p-4 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors group"
-            >
-              <div className="drop-shadow-lg bg-white/20 rounded-full p-2 backdrop-blur-sm border border-white/30">
-                <Cookie className="w-8 h-8 text-primary-foreground group-hover:scale-110 transition-transform" />
-              </div>
-              <span className="text-sm font-medium text-primary-foreground text-center">Sweet Treats</span>
-            </button>
-            <button
-              onClick={() => scrollToSection('healthy')}
-              className="flex flex-col items-center gap-2 p-4 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors group"
-            >
-              <div className="drop-shadow-lg bg-white/20 rounded-full p-2 backdrop-blur-sm border border-white/30">
-                <Apple className="w-8 h-8 text-primary-foreground group-hover:scale-110 transition-transform" />
-              </div>
-              <span className="text-sm font-medium text-primary-foreground text-center">Light & Healthy</span>
-            </button>
-            <button
-              onClick={() => scrollToSection('quick')}
-              className="flex flex-col items-center gap-2 p-4 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors group"
-            >
-              <div className="drop-shadow-lg bg-white/20 rounded-full p-2 backdrop-blur-sm border border-white/30">
-                <Zap className="w-8 h-8 text-primary-foreground group-hover:scale-110 transition-transform" />
-              </div>
-              <span className="text-sm font-medium text-primary-foreground text-center">Quick Bites & Hacks</span>
-            </button>
+            </div>
           </div>
-        </div>
-      </div>
 
-      {/* Get Inspired Section */}
-      <div className="py-16 bg-secondary/30 rounded-t-2xl mx-4">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="bg-card rounded-lg p-8 shadow-[var(--shadow-card)] text-center">
-            <h3 className="font-heading text-2xl font-bold text-foreground mb-3">*•̩̩͙✩•̩̩͙* Get Inspired *•̩̩͙✩•̩̩͙*</h3>
-            <p className="text-muted-foreground mb-6 max-w-3xl mx-auto text-center leading-relaxed">
-              Every dish tells a story of comfort, creativity, and connection &lt;3 These aren't just meals - they're moments of joy shared across dorm rooms and late-night cooking adventures! Your kitchen creations remind us that home isn't a place, it's a feeling we create together 𐙚⋆.˚
-            </p>
+          {/* Add Yours Section */}
+          <AddYoursSection images={[
+            "/lovable-uploads/ab62cb69-3e9a-42b6-b739-e32be31fc039.png",
+            "/lovable-uploads/5fcae279-9ff4-4440-9436-075c82058d26.png",
+            "/lovable-uploads/405e0730-6018-4417-b666-de9e5705172b.png",
+            "/lovable-uploads/4ab7f9a7-5c7b-4a22-a386-1188af33aafb.png",
+            "/lovable-uploads/97c400d4-385c-4647-a4f8-a3994101030d.png",
+            "/lovable-uploads/518571a9-9c35-444f-a121-5a5c7ed12d42.png",
+            "/lovable-uploads/de0a47be-ac27-4c82-8e81-7de9abe96d7d.png",
+            "/lovable-uploads/2a085e41-428c-496e-bbd0-1949c5858ad9.png"
+          ]} />
+
+          {/* Recipe Collections Intro */}
+          <div className="py-16 bg-muted/20">
+            <div className="max-w-7xl mx-auto px-4">
+              <div className="text-center">
+                <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
+                  *•̩̩͙✩•̩̩͙* Recipe Collections *•̩̩͙✩•̩̩͙*
+                </h2>
+                <p className="text-muted-foreground max-w-3xl mx-auto text-center leading-relaxed">
+                  From quick midnight snacks to comfort food that reminds you of home,
+                  we've got recipes for every mood and moment 𐙚⋆.˚ Use the menu bar at the top to explore each collection!
+                </p>
+                <p className="text-sm text-muted-foreground/80 max-w-3xl mx-auto text-center leading-relaxed mt-4 font-medium">
+                  ⚠️ Please note: These recipes are submitted by fellow students and may not include detailed measurements or amounts. Take them as creative inspiration and adjust to taste! ✨
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
 
-      {/* Add Yours Section */}
-      <div className="mx-4">
-        <AddYoursSection images={[
-          "/lovable-uploads/ab62cb69-3e9a-42b6-b739-e32be31fc039.png",
-          "/lovable-uploads/5fcae279-9ff4-4440-9436-075c82058d26.png",
-          "/lovable-uploads/405e0730-6018-4417-b666-de9e5705172b.png",
-          "/lovable-uploads/4ab7f9a7-5c7b-4a22-a386-1188af33aafb.png",
-          "/lovable-uploads/97c400d4-385c-4647-a4f8-a3994101030d.png",
-          "/lovable-uploads/518571a9-9c35-444f-a121-5a5c7ed12d42.png",
-          "/lovable-uploads/de0a47be-ac27-4c82-8e81-7de9abe96d7d.png",
-          "/lovable-uploads/2a085e41-428c-496e-bbd0-1949c5858ad9.png"
-        ]} />
-      </div>
-
-      <div id="recipe-sections" className="py-16 bg-muted/20 mx-4">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
-              *•̩̩͙✩•̩̩͙* Recipe Collections *•̩̩͙✩•̩̩͙*
-            </h2>
-            <p className="text-muted-foreground max-w-3xl mx-auto text-center leading-relaxed">
-              From quick midnight snacks to comfort food that reminds you of home, 
-              we've got recipes for every mood and moment 𐙚⋆.˚
-            </p>
-            <p className="text-sm text-muted-foreground/80 max-w-3xl mx-auto text-center leading-relaxed mt-4 font-medium">
-              ⚠️ Please note: These recipes are submitted by fellow students and may not include detailed measurements or amounts. Take them as creative inspiration and adjust to taste! ✨
-            </p>
+          {/* Share Your Recipe Section */}
+          <div className="py-16 bg-accent/10">
+            <div className="max-w-7xl mx-auto px-4">
+              <div className="bg-card rounded-lg p-8 shadow-[var(--shadow-card)] text-center">
+                <h3 className="font-heading text-2xl font-bold text-foreground mb-3">✧･ﾟ: Share Your Recipe :･ﾟ✧</h3>
+                <p className="text-muted-foreground mb-6 max-w-3xl mx-auto text-center leading-relaxed">
+                  Have a go-to recipe that's gotten you through late-night study sessions or homesick moments?
+                  Share it with fellow students and help build our community cookbook 𐙚⋆.˚
+                </p>
+                <Button
+                  asChild
+                  className="bg-primary text-primary-foreground hover:bg-primary/90"
+                >
+                  <a
+                    href="https://forms.gle/zBjMQ477TwoaZuL78"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center"
+                  >
+                    <ExternalLink className="w-4 h-4 mr-2" />
+                    ✧･ﾟ: Submit Your Recipe :･ﾟ✧
+                  </a>
+                </Button>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+        </>
+      )}
 
-      {/* Dorm-Friendly Mains */}
-      <RecipeSection
-        id="mains"
-        title="Dorm-Friendly Mains"
-        description="Hearty meals you can make with minimal equipment that will actually fill you up and keep you going."
-        icon={<ChefHat className="w-16 h-16" />}
-        bgClass="bg-secondary/20 mx-4"
-      >
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
-          {recipes.mains.map((recipe, index) => (
-            <RecipeCardCompact 
-              key={index} 
-              title={recipe.title}
-              author={recipe.author}
-              difficulty={recipe.difficulty}
-              onClick={() => handleRecipeClickWithScroll(recipe)}
-            />
-          ))}
-        </div>
-      </RecipeSection>
-
-      {/* Savory Snacks & Sides */}
-      <RecipeSection
-        id="snacks"
-        title="Savory Snacks & Sides"
-        description="Perfect for study sessions, movie nights, or when you need something satisfying between meals."
-        icon={<Coffee className="w-16 h-16" />}
-        bgClass="bg-primary/5 mx-4"
-      >
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
-          {recipes.snacks.map((recipe, index) => (
-            <RecipeCardCompact 
-              key={index} 
-              title={recipe.title}
-              author={recipe.author}
-              difficulty={recipe.difficulty}
-              onClick={() => handleRecipeClickWithScroll(recipe)}
-            />
-          ))}
-        </div>
-      </RecipeSection>
-
-      {/* Sweet Treats */}
-      <RecipeSection
-        id="sweets"
-        title="Sweet Treats"
-        description="Because sometimes you need a little sugar to get through the day (or night)."
-        icon={<Cookie className="w-16 h-16" />}
-        bgClass="bg-accent/10 mx-4"
-      >
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
-          {recipes.sweets.map((recipe, index) => (
-            <RecipeCardCompact 
-              key={index} 
-              title={recipe.title}
-              author={recipe.author}
-              difficulty={recipe.difficulty}
-              onClick={() => handleRecipeClickWithScroll(recipe)}
-            />
-          ))}
-        </div>
-      </RecipeSection>
-
-      {/* Light & Healthy */}
-      <RecipeSection
-        id="healthy"
-        title="Light & Healthy"
-        description="Nourishing options for when you want to feel good inside and out."
-        icon={<Apple className="w-16 h-16" />}
-        bgClass="bg-muted/15 mx-4"
-      >
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
-          {recipes.healthy.map((recipe, index) => (
-            <RecipeCardCompact 
-              key={index} 
-              title={recipe.title}
-              author={recipe.author}
-              difficulty={recipe.difficulty}
-              onClick={() => handleRecipeClickWithScroll(recipe)}
-            />
-          ))}
-        </div>
-      </RecipeSection>
-
-      {/* Quick Bites & Hacks */}
-      <RecipeSection
-        id="quick"
-        title="Quick Bites & Hacks"
-        description="Fast solutions for busy schedules and creative ways to upgrade basic ingredients."
-        icon={<Zap className="w-16 h-16" />}
-        bgClass="bg-destructive/5 mx-4"
-      >
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
-          {recipes.quick.map((recipe, index) => (
-            <RecipeCardCompact 
-              key={index} 
-              title={recipe.title}
-              author={recipe.author}
-              difficulty={recipe.difficulty}
-              onClick={() => handleRecipeClickWithScroll(recipe)}
-            />
-          ))}
-        </div>
-      </RecipeSection>
-
-      {/* Share Your Recipe Section */}
-      <div className="py-16 bg-accent/10 rounded-b-2xl mx-4">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="bg-card rounded-lg p-8 shadow-[var(--shadow-card)] text-center">
-            <h3 className="font-heading text-2xl font-bold text-foreground mb-3">✧･ﾟ: Share Your Recipe :･ﾟ✧</h3>
-            <p className="text-muted-foreground mb-6 max-w-3xl mx-auto text-center leading-relaxed">
-              Have a go-to recipe that's gotten you through late-night study sessions or homesick moments? 
-              Share it with fellow students and help build our community cookbook 𐙚⋆.˚
-            </p>
-            <Button 
-              asChild
-              className="bg-primary text-primary-foreground hover:bg-primary/90"
-            >
-              <a 
-                href="https://forms.gle/zBjMQ477TwoaZuL78" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center"
-              >
-                <ExternalLink className="w-4 h-4 mr-2" />
-                ✧･ﾟ: Submit Your Recipe :･ﾟ✧
-              </a>
-            </Button>
-          </div>
-        </div>
-      </div>
+      {/* Category Pages */}
+      {activePage !== "home" && renderCategoryPage(activePage)}
 
       {/* Recipe Modal */}
       <RecipeModal
@@ -516,20 +451,18 @@ const Index = () => {
       />
 
       {/* Footer */}
-      <footer className="bg-muted/50 py-8 mt-16">
+      <footer className="bg-muted/50 py-8">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="flex justify-center mb-4">
             <Heart className="w-8 h-8 text-primary" />
           </div>
           <p className="text-muted-foreground max-w-3xl mx-auto text-center leading-relaxed">
-            Made with love by students, for students. Because everyone deserves a good meal, 
+            Made with love by students, for students. Because everyone deserves a good meal,
             no matter how far from home they are 𐙚⋆.˚
           </p>
         </div>
       </footer>
-        </div>
-      </div>
-    </SidebarProvider>
+    </div>
   );
 };
 
