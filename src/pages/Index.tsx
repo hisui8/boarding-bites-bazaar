@@ -527,7 +527,9 @@ const Index = () => {
           </p>
         </div>
       </footer>
-    </div>
+        </div>
+      </div>
+    </SidebarProvider>
   );
 };
 
