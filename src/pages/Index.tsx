@@ -1,10 +1,12 @@
 import { useState } from "react";
-import { ChefHat, Coffee, Cookie, Soup, Apple, Zap, Heart, BookOpen, ExternalLink } from "lucide-react";
+import { ChefHat, Coffee, Cookie, Apple, Zap, ExternalLink } from "lucide-react";
 import { RecipeCardCompact } from "@/components/RecipeCardCompact";
 import { RecipeModal } from "@/components/RecipeModal";
 import { RecipeSection } from "@/components/RecipeSection";
 import { AddYoursSection } from "@/components/AddYoursSection";
 import { Button } from "@/components/ui/button";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/AppSidebar";
 
 const Index = () => {
   console.log("Index component is rendering");
