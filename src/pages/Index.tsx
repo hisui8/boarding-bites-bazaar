@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ChefHat, Coffee, Cookie, Apple, Zap, ExternalLink } from "lucide-react";
+import { ChefHat, Coffee, Cookie, Apple, Zap, Heart, ExternalLink } from "lucide-react";
 import { RecipeCardCompact } from "@/components/RecipeCardCompact";
 import { RecipeModal } from "@/components/RecipeModal";
 import { RecipeSection } from "@/components/RecipeSection";
